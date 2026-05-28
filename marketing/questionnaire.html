@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zsu Therapy — Quick Questions</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:     #faf8f4;
+    --card:   #ffffff;
+    --border: #e0dbd4;
+    --text:   #1a1a1a;
+    --muted:  #666666;
+    --teal:   #4db0db;
+    --green:  #6db43b;
+    --orange: #e8821e;
+    --purple: #493177;
+    --red:    #d83d3a;
+    --yellow: #b8a800;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    padding: 32px 20px 48px;
+  }
+
+  .wrapper { max-width: 580px; margin: 0 auto; }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+
+  .badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  .page-title {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .divider {
+    height: 3px;
+    background: var(--teal);
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  .section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+
+  .question {
+    margin-bottom: 18px;
+  }
+
+  .question:last-child { margin-bottom: 0; }
+
+  .q-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-size: 13px;
+    color: var(--text);
+    user-select: none;
+  }
+
+  .option:hover { border-color: var(--teal); background: #f0f8fd; }
+
+  .option.selected {
+    border-color: var(--accent, var(--teal));
+    background: #f0f8fd;
+    font-weight: 500;
+  }
+
+  .option .dot {
+    width: 16px; height: 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+  }
+
+  .option.selected .dot {
+    border-color: var(--accent, var(--teal));
+    background: var(--accent, var(--teal));
+  }
+
+  .option.selected .dot::after {
+    content: '';
+    display: block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: white;
+  }
+
+  .text-input {
+    width: 100%;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--text);
+    background: var(--bg);
+    outline: none;
+    transition: border-color 0.15s;
+    resize: none;
+  }
+
+  .text-input:focus { border-color: var(--teal); }
+  .text-input::placeholder { color: var(--muted); }
+
+  .note {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 20px;
+    text-align: center;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="header-top">
+    <span class="badge">@zsutherapy</span>
+    <span class="badge">Massage, Reflexology, Aromatherapy · Brockley SE4</span>
+  </div>
+  <p class="page-title">A few quick questions</p>
+  <div class="divider"></div>
+
+  <!-- Email Marketing -->
+  <div class="section">
+    <div class="section-label" style="color:var(--teal)">Email Marketing</div>
+
+    <div class="question">
+      <div class="q-text">Which platform do you use?</div>
+      <div class="options" data-accent="#4db0db">
+        <div class="option">Mailchimp</div>
+        <div class="option">Klaviyo</div>
+        <div class="option">Brevo (formerly Sendinblue)</div>
+        <div class="option">Wix Email Marketing</div>
+        <div class="option">Other</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-text">Roughly how many subscribers do you have?</div>
+      <div class="options" data-accent="#4db0db">
+        <div class="option">Under 100</div>
+        <div class="option">100 to 500</div>
+        <div class="option">500 to 1,000</div>
+        <div class="option">Over 1,000</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-text">How often do you send emails?</div>
+      <div class="options" data-accent="#4db0db">
+        <div class="option">Rarely or never</div>
+        <div class="option">A few times a year</div>
+        <div class="option">Monthly</div>
+        <div class="option">Weekly or more</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-text">Do you feel emails are bringing in bookings?</div>
+      <div class="options" data-accent="#4db0db">
+        <div class="option">Yes, definitely</div>
+        <div class="option">Maybe, hard to tell</div>
+        <div class="option">Probably not</div>
+        <div class="option">I don't know</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wix -->
+  <div class="section">
+    <div class="section-label" style="color:var(--green)">Wix Website</div>
+
+    <div class="question">
+      <div class="q-text">Did you choose the 2-year plan, or did it auto-renew?</div>
+      <div class="options" data-accent="#6db43b">
+        <div class="option">I chose it deliberately</div>
+        <div class="option">It just renewed, I didn't really notice</div>
+        <div class="option">I'm not sure</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-text">Who built and manages the site?</div>
+      <div class="options" data-accent="#6db43b">
+        <div class="option">I built it and manage it myself</div>
+        <div class="option">Someone built it, I manage it now</div>
+        <div class="option">Someone else manages it</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-text">Would you consider moving to a different platform?</div>
+      <div class="options" data-accent="#6db43b">
+        <div class="option">Yes, open to it</div>
+        <div class="option">Maybe, if it was easy</div>
+        <div class="option">No, happy with Wix</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reviews -->
+  <div class="section">
+    <div class="section-label" style="color:var(--orange)">Reviews App</div>
+
+    <div class="question">
+      <div class="q-text">Which app is it?</div>
+      <div class="options" data-accent="#e8821e">
+        <div class="option">Trustpilot</div>
+        <div class="option">Wix Reviews</div>
+        <div class="option">Google Reviews widget</div>
+        <div class="option">Other</div>
+        <div class="option">Not sure of the name</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-text">Where do the reviews appear?</div>
+      <div class="options" data-accent="#e8821e">
+        <div class="option">On my website</div>
+        <div class="option">On Google</div>
+        <div class="option">Both</div>
+        <div class="option">I'm not sure</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-text">Are you actively using it or is it just running?</div>
+      <div class="options" data-accent="#e8821e">
+        <div class="option">Actively using it</div>
+        <div class="option">It's just running in the background</div>
+        <div class="option">I forgot it was there</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- General -->
+  <div class="section">
+    <div class="section-label" style="color:var(--purple)">General</div>
+
+    <div class="question">
+      <div class="q-text">Do you have a Google Business Profile set up?</div>
+      <div class="options" data-accent="#493177">
+        <div class="option">Yes, fully set up</div>
+        <div class="option">Yes but I haven't done much with it</div>
+        <div class="option">No</div>
+        <div class="option">Not sure what that is</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-text">Are you running any paid advertising?</div>
+      <div class="options" data-accent="#493177">
+        <div class="option">Yes, Google Ads</div>
+        <div class="option">Yes, Instagram or Facebook Ads</div>
+        <div class="option">Both</div>
+        <div class="option">No</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-text">How do most new clients find you?</div>
+      <div class="options" data-accent="#493177">
+        <div class="option">Word of mouth</div>
+        <div class="option">Google search</div>
+        <div class="option">Instagram</div>
+        <div class="option">Fresha / booking platform</div>
+        <div class="option">Mix of all of these</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-text">Do you have any help managing admin and marketing?</div>
+      <div class="options" data-accent="#493177">
+        <div class="option">No, I do everything myself</div>
+        <div class="option">I have occasional help</div>
+        <div class="option">I have a VA (Virtual Assistant)</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="q-text">Anything else you'd like to add?</div>
+      <textarea class="text-input" rows="3" placeholder="Optional — any context that might help..."></textarea>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top: 20px;">
+    <button onclick="copyAnswers()" style="
+      background: var(--teal);
+      color: white;
+      border: none;
+      border-radius: 24px;
+      padding: 12px 32px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      max-width: 300px;
+    ">Copy my answers</button>
+    <p id="copy-confirm" style="display:none; margin-top:10px; font-size:12px; color:var(--teal); font-family:'DM Mono',monospace;">Copied! Paste into WhatsApp or email.</p>
+  </div>
+
+</div>
+
+<script>
+  document.querySelectorAll('.options').forEach(group => {
+    const accent = group.dataset.accent;
+    group.querySelectorAll('.option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        group.querySelectorAll('.option').forEach(o => {
+          o.classList.remove('selected');
+          o.style.borderColor = '';
+          o.style.background  = '';
+          const dot = o.querySelector('.dot');
+          if (dot) { dot.style.borderColor = ''; dot.style.background = ''; }
+        });
+        opt.classList.add('selected');
+        opt.style.borderColor = accent;
+        opt.style.background  = accent + '18';
+        const dot = opt.querySelector('.dot');
+        if (dot) { dot.style.borderColor = accent; dot.style.background = accent; }
+      });
+    });
+  });
+
+  document.querySelectorAll('.option').forEach(opt => {
+    const dot = document.createElement('div');
+    dot.className = 'dot';
+    opt.insertBefore(dot, opt.firstChild);
+  });
+
+  function copyAnswers() {
+    const lines = ['Zsu Therapy — Quick Questions\n'];
+    document.querySelectorAll('.section').forEach(section => {
+      const label = section.querySelector('.section-label').textContent.trim();
+      lines.push('── ' + label + ' ──');
+      section.querySelectorAll('.question').forEach(q => {
+        const qText = q.querySelector('.q-text').textContent.trim();
+        const selected = q.querySelector('.option.selected');
+        const textarea = q.querySelector('textarea');
+        if (textarea) {
+          const val = textarea.value.trim();
+          if (val) lines.push('• ' + qText + '\n  ' + val);
+        } else {
+          const answer = selected ? selected.textContent.trim() : '—';
+          lines.push('• ' + qText + '\n  ' + answer);
+        }
+      });
+      lines.push('');
+    });
+
+    const text = lines.join('\n');
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try {
+      document.execCommand('copy');
+      document.getElementById('copy-confirm').style.display = 'block';
+      setTimeout(() => document.getElementById('copy-confirm').style.display = 'none', 3000);
+    } catch(e) {
+      alert('Could not copy automatically — please copy the text manually.');
+    }
+    document.body.removeChild(ta);
+  }
+</script>
+<script src="../js/zsu-core.js"></script>
+<script>ZSU.auth();</script>
+</body>
+</html>

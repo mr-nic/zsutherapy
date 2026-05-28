@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zsu Therapy — Keeping Clients and Growing by Referral</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#faf8f4;--card:#fff;--border:#e0dbd4;--text:#1a1a1a;--muted:#666;--teal:#4db0db;--green:#6db43b;--orange:#e8821e;--purple:#493177;--red:#d83d3a;--yellow:#b8a800}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;padding:32px 20px 48px}
+  .wrapper{max-width:900px;margin:0 auto}
+  .header{margin-bottom:20px}
+  .header-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .badge{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+  .page-title{font-size:14px;color:var(--muted);margin-bottom:14px;text-align:right}
+  .divider{height:3px;background:var(--teal);border-radius:2px;margin-bottom:20px}
+  .progress-bar-wrap{display:flex;align-items:center;gap:12px;height:24px;margin-bottom:20px}
+  .progress-track{flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+  .progress-fill{height:100%;background:var(--teal);border-radius:2px;width:0%;transition:width .3s ease}
+  .progress-label{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);white-space:nowrap;min-width:44px;text-align:right}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .cell{background:var(--card);padding:20px;transition:background .15s}
+  .cell:hover{background:#f7f5f1}
+  .phase-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .phase-label::before{content:'';display:block;width:10px;height:10px;border-radius:50%;background:currentColor;flex-shrink:0}
+  .section-title{font-size:12px;font-weight:600;color:var(--text);margin:12px 0 6px;padding-top:10px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px}
+  .section-title:first-of-type{border-top:none;padding-top:0}
+  .intent{font-size:9px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-left:auto}
+  .item{display:flex;align-items:flex-start;gap:8px;padding:5px 0;cursor:pointer;border-radius:4px;transition:background .1s}
+  .item:hover{background:#f0ede8;margin:0 -4px;padding-left:4px;padding-right:4px}
+  .checkbox{width:16px;height:16px;border:1.5px solid var(--border);border-radius:3px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;transition:all .15s;color:white;background:transparent}
+  .item.checked .item-text{text-decoration:line-through;color:var(--muted)}
+  .item-text{font-size:12px;line-height:1.5;color:var(--text)}
+  .note{font-size:11px;color:var(--muted);font-style:italic;margin:4px 0 2px 24px;line-height:1.4}
+  code{font-family:'DM Mono',monospace;font-size:11px;background:#f0ede8;padding:1px 4px;border-radius:3px;color:var(--teal)}
+  .reset-btn{display:block;margin:20px auto 0;background:none;border:1px solid var(--border);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;padding:7px 20px;border-radius:20px;cursor:pointer;transition:all .15s}
+  .reset-btn:hover{border-color:var(--teal);color:var(--teal)}
+  @media(max-width:600px){.grid{grid-template-columns:1fr}.page-title{text-align:left}}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <div class="header-top">
+      <span class="badge">@zsutherapy</span>
+      <span class="badge">Massage, Reflexology, Aromatherapy · Brockley SE4</span>
+    </div>
+    <p class="page-title">Keeping Clients and Growing by Referral</p>
+    <div class="divider"></div>
+  </div>
+  <div class="progress-bar-wrap">
+    <div class="progress-track"><div class="progress-fill" id="fill"></div></div>
+    <div class="progress-label" id="prog">0 / 0</div>
+  </div>
+  <div class="grid">
+    <div class="cell">
+      <div class="phase-label" style="color:var(--teal)">Rebooking — The Single Biggest Lever</div>
+      <div class="section-title" style="border-top:none;padding-top:0">At the End of Every Session</div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">“Shall we get your next one in the diary?” — ask before they leave</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Suggest a specific interval based on what you noticed in the session</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Book it there and then — not “I’ll message you”</span></div>
+      <p class="note">Rebooking in the room converts far higher than following up later</p>
+      <div class="section-title">If They Are Not Ready</div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Send a warm follow-up 3–4 weeks later</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Keep a simple note of their preferred treatment and usual frequency</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">“Hope you’re still feeling the benefit — let me know when you’d like to come in again”</span></div>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--green)">Referrals — Word of Mouth, Made Easy</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Make Referring Feel Natural</div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Mention it after a session where a client is clearly pleased</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">“If anyone you know is looking for this kind of work, I’d love to look after them”</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">If someone sends a friend, make sure the new client is warmly received</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">If you want to offer something in return, keep it simple and personal: a small credit toward their next session</span></div>
+      <p class="note">Word of mouth is already the top channel — this just makes it a little more intentional</p>
+      <div class="section-title">Thank Every Referrer</div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">A personal message when someone sends a friend means a lot</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Apply any credit quietly, without making it feel transactional</span></div>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--orange)">Reactivation — Clients Who Have Drifted</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Spot Them Monthly</div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Once a month, note who has not been in for 3 or more months</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Prioritise people who used to come regularly</span></div>
+      <div class="section-title">Reach Out Gently</div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">“Hi [name] — it’s been a while and I’ve been thinking of you. I have some slots coming up if you’ve been meaning to come in.”</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Keep it short, warm, and without pressure</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">A small gesture — a priority slot or a quiet mention of something new you’re offering — can tip the decision</span></div>
+      <p class="note">A past client already trusts you — the bar to return is much lower than for a new client</p>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--purple)">Loyalty — Recognising Regular Clients</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Simple Ways to Show Appreciation</div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Remember what matters to them — their job, their problem areas, how they prefer to work</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">A birthday message or a seasonal check-in costs nothing and means a lot</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">For regular clients, a block booking option — a few sessions paid upfront at a small saving — rewards loyalty without feeling like a points card</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Keep any scheme simple enough to track without effort</span></div>
+      <p class="note">Personal continuity is the thing a sole practitioner can offer that a clinic or spa cannot</p>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--red)">Reviews — Let Happy Clients Speak for You</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Ask at the Right Moment</div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Ask just after a session they clearly enjoyed — not by automated message</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">“A Google review would genuinely help me — here’s the link if you have a moment”</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Save your direct Google review link on your phone</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Aim for 2 new reviews a month — regularity matters more than volume</span></div>
+      <div class="section-title">Use Reviews Well</div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Reply to every review warmly and specifically — never with a copy-pasted response</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Share standout reviews on Instagram Stories as proof, not as a hard sell</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Add a Google review link to the website footer and About page</span></div>
+      <p class="note">Reviews support local search visibility and reassure first-time clients</p>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--yellow)">What Makes Zsu Different</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Make This Visible</div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">15 years of practice — say it on the website, the bio, and in conversation</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Five modalities under one roof — few sole practitioners offer this range</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Pregnancy massage as a specialism — limited local competition, high reassurance value</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">“One therapist, always Zsu” — continuity is a genuine differentiator</span></div>
+      <p class="note">These are not marketing claims — they are true and worth saying clearly</p>
+      <div class="section-title">Where to Say It</div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Website About page — lead with experience and specialisms</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Instagram bio — one quiet line that says it without shouting</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Pin a “who I am and why this matters” post on Instagram</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Let it come through in how you communicate, not just what you publish</span></div>
+    </div>
+
+  </div>
+  <button class="reset-btn">&#8635; Reset all</button>
+</div>
+<script src="../js/zsu-core.js"></script>
+<script>ZSU.initChecklist('retention-referral');</script>
+</body>
+</html>

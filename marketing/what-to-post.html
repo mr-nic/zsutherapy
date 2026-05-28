@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zsu Therapy — What to Post and When</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#faf8f4; --card:#ffffff; --border:#e0dbd4; --text:#1a1a1a; --muted:#666;
+    --teal:#4db0db; --green:#6db43b; --orange:#e8821e; --purple:#493177; --red:#d83d3a; --yellow:#b8a800;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;padding:32px 20px 48px}
+  .wrapper{max-width:900px;margin:0 auto}
+  .header{margin-bottom:20px}
+  .header-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .badge{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+  .page-title{font-size:14px;color:var(--muted);margin-bottom:8px;text-align:right}
+  .summary{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:10px}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+  .legend span{font-size:11px;border:1px solid var(--border);border-radius:999px;padding:4px 10px;background:#fff;color:var(--muted)}
+  .divider{height:3px;background:var(--teal);border-radius:2px;margin-bottom:20px}
+  .progress-bar-wrap{display:flex;align-items:center;gap:12px;height:24px;margin-bottom:20px}
+  .progress-track{flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+  .progress-fill{height:100%;background:var(--teal);border-radius:2px;width:0%;transition:width .3s ease}
+  .progress-label{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);white-space:nowrap;min-width:44px;text-align:right}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .cell{background:var(--card);padding:20px;transition:background .15s}
+  .cell:hover{background:#f7f5f1}
+  .phase-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .phase-label::before{content:'';display:block;width:10px;height:10px;border-radius:50%;background:currentColor;flex-shrink:0}
+  .section-title{font-size:12px;font-weight:600;color:var(--text);margin:12px 0 6px;padding-top:10px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px}
+  .section-title:first-of-type{border-top:none;padding-top:0}
+  .intent{font-size:9px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-left:auto}
+  .item{display:flex;align-items:flex-start;gap:8px;padding:5px 0;cursor:pointer;border-radius:4px;transition:background .1s}
+  .item:hover{background:#f0ede8;margin:0 -4px;padding-left:4px;padding-right:4px}
+  .checkbox{width:16px;height:16px;border:1.5px solid var(--border);border-radius:3px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;transition:all .15s;color:white;background:transparent}
+  .item.checked .item-text{text-decoration:line-through;color:var(--muted)}
+  .item-text{font-size:12px;line-height:1.5;color:var(--text)}
+  .note{font-size:11px;color:var(--muted);font-style:italic;margin:4px 0 2px 24px;line-height:1.4}
+  code{font-family:'DM Mono',monospace;font-size:11px;background:#f0ede8;padding:1px 4px;border-radius:3px;color:var(--teal)}
+  .reset-btn{display:block;margin:20px auto 0;background:none;border:1px solid var(--border);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;padding:7px 20px;border-radius:20px;cursor:pointer;transition:all .15s}
+  .reset-btn:hover{border-color:var(--teal);color:var(--teal)}
+  @media(max-width:600px){.grid{grid-template-columns:1fr}.page-title{text-align:left}}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <div class="header-top">
+      <span class="badge">@zsutherapy</span>
+      <span class="badge">Massage, Reflexology, Aromatherapy &middot; Brockley SE4</span>
+    </div>
+    <p class="page-title">What to Post and When</p>
+    <p class="summary">Internal planning board for Zsu Therapy. Aim for calm, trust-building content, clearer booking confidence, and a realistic weekly rhythm.</p>
+    <div class="legend">
+      <span>Aware = reach</span><span>Trust = reassurance</span><span>Book = conversion</span><span>Nurture = relationships</span>
+    </div>
+    <div class="divider"></div>
+  </div>
+  <div class="progress-bar-wrap">
+    <div class="progress-track"><div class="progress-fill" id="fill"></div></div>
+    <div class="progress-label" id="prog">0 / 0</div>
+  </div>
+  <div class="grid">
+
+    <div class="cell">
+      <div class="phase-label" style="color:var(--teal)">Grid Posts &mdash; Permanent Profile</div>
+      <div class="section-title">Deep Tissue and Sports <span class="intent">Book</span></div>
+      <div class="item" data-color="#4db0db"><div class="checkbox"></div><span class="item-text">Before/after posture or movement clip</span></div>
+      <div class="item" data-color="#4db0db"><div class="checkbox"></div><span class="item-text">"What deep tissue actually feels like" explainer</span></div>
+      <div class="item" data-color="#4db0db"><div class="checkbox"></div><span class="item-text">Common myths busted, framed gently</span></div>
+      <p class="note">CTA: Book via link in bio</p>
+      <div class="section-title">Aromatherapy <span class="intent">Trust</span></div>
+      <div class="item" data-color="#4db0db"><div class="checkbox"></div><span class="item-text">Oil choices and what each is for (relaxing, grounding, soothing)</span></div>
+      <div class="item" data-color="#4db0db"><div class="checkbox"></div><span class="item-text">Seasonal tie-in, e.g. winter wind-down</span></div>
+      <p class="note">Avoid overclaiming language like "detoxing"</p>
+    </div>
+
+    <div class="cell">
+      <div class="phase-label" style="color:var(--green)">Grid Posts &mdash; Continued</div>
+      <div class="section-title">Pregnancy Massage <span class="intent">Trust</span></div>
+      <div class="item" data-color="#6db43b"><div class="checkbox"></div><span class="item-text">What trimesters are suitable and why</span></div>
+      <div class="item" data-color="#6db43b"><div class="checkbox"></div><span class="item-text">Reassurance post for first-timers</span></div>
+      <div class="item" data-color="#6db43b"><div class="checkbox"></div><span class="item-text">Partner gift idea angle</span></div>
+      <p class="note">Tag: #PregnancyMassageLondon #BrockleyMums</p>
+      <div class="section-title">Reflexology and Thai Yoga <span class="intent">Aware</span></div>
+      <div class="item" data-color="#6db43b"><div class="checkbox"></div><span class="item-text">Foot map graphic or demo clip</span></div>
+      <div class="item" data-color="#6db43b"><div class="checkbox"></div><span class="item-text">Thai Yoga: what to expect (few people know it)</span></div>
+      <div class="item" data-color="#6db43b"><div class="checkbox"></div><span class="item-text">"Which treatment is right for me?" carousel</span></div>
+    </div>
+
+    <div class="cell">
+      <div class="phase-label" style="color:var(--orange)">Stories &mdash; Disappear After 24hrs</div>
+      <div class="section-title">Availability <span class="intent">Book</span></div>
+      <div class="item" data-color="#e8821e"><div class="checkbox"></div><span class="item-text">Post open slots 2&ndash;3x per week</span></div>
+      <div class="item" data-color="#e8821e"><div class="checkbox"></div><span class="item-text">Countdown sticker for end-of-week deadline</span></div>
+      <div class="item" data-color="#e8821e"><div class="checkbox"></div><span class="item-text">Link sticker direct to zsutherapy.com/book-online</span></div>
+      <div class="section-title">Behind the Scenes <span class="intent">Trust</span></div>
+      <div class="item" data-color="#e8821e"><div class="checkbox"></div><span class="item-text">Setting up the room, oils, ambience</span></div>
+      <div class="item" data-color="#e8821e"><div class="checkbox"></div><span class="item-text">Arriving at Renaissance Yoga &amp; Wellbeing</span></div>
+      <div class="item" data-color="#e8821e"><div class="checkbox"></div><span class="item-text">Your routine or wind-down after a busy day</span></div>
+      <p class="note">Low effort, high trust-building</p>
+    </div>
+
+    <div class="cell">
+      <div class="phase-label" style="color:var(--purple)">Stories &mdash; Continued</div>
+      <div class="section-title">Engagement <span class="intent">Nurture</span></div>
+      <div class="item" data-color="#493177"><div class="checkbox"></div><span class="item-text">Poll: "Deep tissue or relaxation this week?"</span></div>
+      <div class="item" data-color="#493177"><div class="checkbox"></div><span class="item-text">Question box: "What do you carry tension in?"</span></div>
+      <div class="item" data-color="#493177"><div class="checkbox"></div><span class="item-text">Quiz: "Which treatment suits your mood?"</span></div>
+      <p class="note">Use polls as a gentle engagement tool, not a growth gimmick</p>
+      <div class="section-title">Seasonal and Timely <span class="intent">Aware</span></div>
+      <div class="item" data-color="#493177"><div class="checkbox"></div><span class="item-text">Gift vouchers before Christmas, Mothers Day, Valentines</span></div>
+      <div class="item" data-color="#493177"><div class="checkbox"></div><span class="item-text">Post-event recovery (marathons, local events)</span></div>
+      <div class="item" data-color="#493177"><div class="checkbox"></div><span class="item-text">New year reset / self-care January angle</span></div>
+    </div>
+
+    <div class="cell">
+      <div class="phase-label" style="color:var(--red)">Reels &mdash; Biggest Reach Lever</div>
+      <div class="section-title">What Works for Zsu <span class="intent">Aware + Book</span></div>
+      <div class="item" data-color="#d83d3a"><div class="checkbox"></div><span class="item-text">15&ndash;30 sec treatment clips with text overlay</span></div>
+      <div class="item" data-color="#d83d3a"><div class="checkbox"></div><span class="item-text">ASMR: hands on back, oil sounds, room ambience</span></div>
+      <div class="item" data-color="#d83d3a"><div class="checkbox"></div><span class="item-text">"A session at Renaissance Yoga &amp; Wellbeing" walkthrough</span></div>
+      <div class="item" data-color="#d83d3a"><div class="checkbox"></div><span class="item-text">"What £70 gets you" to demystify pricing</span></div>
+      <p class="note">Hook in first 2 seconds. No intro. Make reels answer a question, show a real session, or reduce booking anxiety.</p>
+      <div class="section-title">Frequency</div>
+      <div class="item" data-color="#d83d3a"><div class="checkbox"></div><span class="item-text">Minimum 1 reel per week</span></div>
+      <div class="item" data-color="#d83d3a"><div class="checkbox"></div><span class="item-text">Batch-record 3&ndash;4 in one session monthly</span></div>
+    </div>
+
+    <div class="cell">
+      <div class="phase-label" style="color:var(--yellow)">Posting Schedule</div>
+      <div class="section-title">Best Days to Post</div>
+      <div class="item" data-color="#b8a800"><div class="checkbox"></div><span class="item-text">Tuesday and Wednesday: midweek decision-makers</span></div>
+      <div class="item" data-color="#b8a800"><div class="checkbox"></div><span class="item-text">Sunday evening: people planning their week</span></div>
+      <div class="item" data-color="#b8a800"><div class="checkbox"></div><span class="item-text">Thursday: pre-weekend treat mindset</span></div>
+      <div class="section-title">Suggested Weekly Rhythm</div>
+      <div class="item" data-color="#b8a800"><div class="checkbox"></div><span class="item-text">Mon: Story &mdash; week availability + link</span></div>
+      <div class="item" data-color="#b8a800"><div class="checkbox"></div><span class="item-text">Tue/Wed: Reel or grid post</span></div>
+      <div class="item" data-color="#b8a800"><div class="checkbox"></div><span class="item-text">Thu: Story &mdash; any remaining slots</span></div>
+      <div class="item" data-color="#b8a800"><div class="checkbox"></div><span class="item-text">Sun eve: Story &mdash; next week preview</span></div>
+      <p class="note">Consistency beats frequency</p>
+    </div>
+
+    <div class="cell">
+      <div class="phase-label" style="color:var(--teal)">Awareness Content &mdash; Top of Funnel</div>
+      <div class="section-title">Educational <span class="intent">Aware</span></div>
+      <div class="item" data-color="#4db0db"><div class="checkbox"></div><span class="item-text">"Why your shoulders hurt after a day at a desk"</span></div>
+      <div class="item" data-color="#4db0db"><div class="checkbox"></div><span class="item-text">"5 signs your body is asking for a massage"</span></div>
+      <div class="item" data-color="#4db0db"><div class="checkbox"></div><span class="item-text">"How stress shows up in your body"</span></div>
+      <div class="item" data-color="#4db0db"><div class="checkbox"></div><span class="item-text">"What happens to your muscles when you don't sleep well"</span></div>
+      <p class="note">Attracts people who don't yet know they want a massage</p>
+      <div class="section-title">Consideration <span class="intent">Trust</span></div>
+      <div class="item" data-color="#4db0db"><div class="checkbox"></div><span class="item-text">"Deep tissue vs relaxation &mdash; which is right for you?"</span></div>
+      <div class="item" data-color="#4db0db"><div class="checkbox"></div><span class="item-text">"What to expect at your first massage"</span></div>
+      <div class="item" data-color="#4db0db"><div class="checkbox"></div><span class="item-text">"Is pregnancy massage safe? Here's what you need to know"</span></div>
+    </div>
+
+    <div class="cell">
+      <div class="phase-label" style="color:var(--green)">Awareness Content &mdash; Continued</div>
+      <div class="section-title">Zsu's Expertise <span class="intent">Trust</span></div>
+      <div class="item" data-color="#6db43b"><div class="checkbox"></div><span class="item-text">"15 years of practice &mdash; what I've learned about how bodies hold tension"</span></div>
+      <div class="item" data-color="#6db43b"><div class="checkbox"></div><span class="item-text">"Why I trained in Thai Yoga as well as deep tissue"</span></div>
+      <div class="item" data-color="#6db43b"><div class="checkbox"></div><span class="item-text">"The difference between a trained therapist and a spa treatment"</span></div>
+      <p class="note">Position Zsu as the knowledgeable local expert, not just a service</p>
+      <div class="section-title">Local and Seasonal <span class="intent">Aware</span></div>
+      <div class="item" data-color="#6db43b"><div class="checkbox"></div><span class="item-text">"Running the London Marathon? Here's how to recover properly"</span></div>
+      <div class="item" data-color="#6db43b"><div class="checkbox"></div><span class="item-text">"Working from home in SE London? Your back is probably suffering"</span></div>
+      <div class="item" data-color="#6db43b"><div class="checkbox"></div><span class="item-text">"January reset &mdash; why this is the best time to start a regular massage routine"</span></div>
+      <p class="note">Aim for 1 awareness post per week</p>
+    </div>
+
+  </div>
+  <button class="reset-btn">&#8635; Reset all</button>
+</div>
+<script src="../js/zsu-core.js"></script>
+<script>ZSU.initChecklist('what-to-post');</script>
+</body>
+</html>

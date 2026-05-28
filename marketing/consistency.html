@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zsu Therapy — Cross-Channel Consistency</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#faf8f4;--card:#fff;--border:#e0dbd4;--text:#1a1a1a;--muted:#666;--teal:#4db0db;--green:#6db43b;--orange:#e8821e;--purple:#493177;--red:#d83d3a;--yellow:#b8a800}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;padding:32px 20px 48px}
+  .wrapper{max-width:900px;margin:0 auto}
+  .header{margin-bottom:20px}
+  .header-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .badge{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+  .page-title{font-size:14px;color:var(--muted);margin-bottom:14px;text-align:right}
+  .divider{height:3px;background:var(--teal);border-radius:2px;margin-bottom:20px}
+  .progress-bar-wrap{display:flex;align-items:center;gap:12px;height:24px;margin-bottom:20px}
+  .progress-track{flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+  .progress-fill{height:100%;background:var(--teal);border-radius:2px;width:0%;transition:width .3s ease}
+  .progress-label{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);white-space:nowrap;min-width:44px;text-align:right}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .cell{background:var(--card);padding:20px;transition:background .15s}
+  .cell:hover{background:#f7f5f1}
+  .phase-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .phase-label::before{content:'';display:block;width:10px;height:10px;border-radius:50%;background:currentColor;flex-shrink:0}
+  .section-title{font-size:12px;font-weight:600;color:var(--text);margin:12px 0 6px;padding-top:10px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px}
+  .section-title:first-of-type{border-top:none;padding-top:0}
+  .intent{font-size:9px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-left:auto}
+  .item{display:flex;align-items:flex-start;gap:8px;padding:5px 0;cursor:pointer;border-radius:4px;transition:background .1s}
+  .item:hover{background:#f0ede8;margin:0 -4px;padding-left:4px;padding-right:4px}
+  .checkbox{width:16px;height:16px;border:1.5px solid var(--border);border-radius:3px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;transition:all .15s;color:white;background:transparent}
+  .item.checked .item-text{text-decoration:line-through;color:var(--muted)}
+  .item-text{font-size:12px;line-height:1.5;color:var(--text)}
+  .note{font-size:11px;color:var(--muted);font-style:italic;margin:4px 0 2px 24px;line-height:1.4}
+  code{font-family:'DM Mono',monospace;font-size:11px;background:#f0ede8;padding:1px 4px;border-radius:3px;color:var(--teal)}
+  .reset-btn{display:block;margin:20px auto 0;background:none;border:1px solid var(--border);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;padding:7px 20px;border-radius:20px;cursor:pointer;transition:all .15s}
+  .reset-btn:hover{border-color:var(--teal);color:var(--teal)}
+  @media(max-width:600px){.grid{grid-template-columns:1fr}.page-title{text-align:left}}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <div class="header-top">
+      <span class="badge">@zsutherapy</span>
+      <span class="badge">Massage, Reflexology, Aromatherapy · Brockley SE4</span>
+    </div>
+    <p class="page-title">Cross-Channel Consistency — One System, One Voice</p>
+    <div class="divider"></div>
+  </div>
+  <div class="progress-bar-wrap">
+    <div class="progress-track"><div class="progress-fill" id="fill"></div></div>
+    <div class="progress-label" id="prog">0 / 0</div>
+  </div>
+  <div class="grid">
+    <div class="cell">
+      <div class="phase-label" style="color:var(--teal)">The Local Acquisition Loop</div>
+      <div class="section-title" style="border-top:none;padding-top:0">How the Channels Work Together</div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Search: client searches “massage Brockley” or “pregnancy massage SE4”</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Profile: Google Business Profile builds first trust — photos, reviews, hours</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Social: Instagram creates familiarity and reassurance over time</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Website: treatments, pricing, and booking in one clear place</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Booking: frictionless path to a confirmed appointment</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Review: a happy client leaves a review and the loop starts again</span></div>
+      <p class="note">Each channel supports the next — consistency is what makes them feel like one thing</p>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--green)">Business Name and Identity</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Use Exactly This, Everywhere</div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Business name: Zsu Therapy</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Tagline (optional, consistent): Massage, reflexology and aromatherapy in Brockley, SE4</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Handle: @zsutherapy</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Portrait photo: same image on website, Google, Instagram, and Fresha</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Logo: original seven-petal mark — no variations</span></div>
+      <p class="note">Even small inconsistencies (Zsu’s Therapy, ZsuTherapy, Zsu Kulcsar) reduce recognition</p>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--orange)">Treatment Names — Use Exactly These</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Canonical Treatment Names</div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Deep Tissue Massage</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Aromatherapy Massage</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Pregnancy Massage</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Reflexology</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Thai Yoga Massage</span></div>
+      <p class="note">These names should appear identically on the website, Google, Instagram, and Fresha</p>
+      <div class="section-title">What to Avoid</div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Do not shorten to “Deep Tissue” on one channel and “Deep Tissue Massage” on another</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Do not use “Sports Massage” separately unless it has its own page and Google category</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Do not vary capitalisation or spelling between platforms</span></div>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--purple)">Location References</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Use These Consistently</div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Venue: Renaissance Yoga &amp; Wellbeing</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Address: Mantle Road, Brockley, London SE4 2EW</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Short form: Brockley SE4</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Transport: 3 min walk from Brockley Overground</span></div>
+      <div class="section-title">Where Location Should Appear</div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Google Business Profile: full address and category</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Website: every page title, About page, Hours &amp; Location page, footer</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Instagram: bio (Brockley SE4), location tag on every post (same tag every time)</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Fresha: business address field</span></div>
+      <p class="note">Location consistency is a significant local SEO signal — do not vary it</p>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--red)">Booking Link</div>
+      <div class="section-title" style="border-top:none;padding-top:0">One Link, Used Everywhere</div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Primary booking URL: zsutherapy.com/book-online</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Google Business Profile: Appointment URL field</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Instagram: bio link and Story link sticker</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Website: every Book Now button and CTA</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Fresha: if used, link from the website to Fresha, not the other way</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Email footer: include the booking link in every newsletter</span></div>
+      <p class="note">A single consistent booking link makes tracking and updating much simpler</p>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--yellow)">Tone of Voice</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Across Every Channel, Prefer</div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Calm — unhurried, no urgency pressure</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Warm — personal, human, not corporate</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Specific — real details over vague wellness language</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Honest — no overclaiming, no hype</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Reassuring — especially for first-time and pregnancy clients</span></div>
+      <div class="section-title">Avoid Across Every Channel</div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Jargon or clinical language</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Salesy or pushy phrasing</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Wellness clichés (holistic journey, transformative experience)</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Overclaiming (detoxing, cures, fixes)</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Keyword-stuffed phrases that sound unnatural</span></div>
+      <p class="note">The tone should feel like a very good practitioner who is warm, clear, and quietly expert</p>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--teal)">Quarterly Consistency Audit</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Check These Four Things Every Quarter</div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Google Business Profile: name, address, hours, booking link, description — all current?</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Instagram: bio, link, location tag, treatment names in captions — consistent?</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Website: all 12 pages use the same treatment names and booking URL?</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Fresha: treatments listed with same names and prices as website?</span></div>
+      <div class="section-title">After Any Change (pricing, hours, new treatment)</div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Update Google Business Profile first — it has the widest reach</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Update website second</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Update Instagram bio and pinned posts third</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Update Fresha last — confirm booking flow still works after any change</span></div>
+      <p class="note">A change on one channel that is not reflected on others creates confusion and lost bookings</p>
+    </div>
+
+  </div>
+  <button class="reset-btn">&#8635; Reset all</button>
+</div>
+<script src="../js/zsu-core.js"></script>
+<script>ZSU.initChecklist('consistency');</script>
+</body>
+</html>

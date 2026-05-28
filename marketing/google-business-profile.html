@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zsu Therapy — Google Business Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#faf8f4;--card:#fff;--border:#e0dbd4;--text:#1a1a1a;--muted:#666;--teal:#4db0db;--green:#6db43b;--orange:#e8821e;--purple:#493177;--red:#d83d3a;--yellow:#b8a800}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;padding:32px 20px 48px}
+  .wrapper{max-width:900px;margin:0 auto}
+  .header{margin-bottom:20px}
+  .header-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .badge{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+  .page-title{font-size:14px;color:var(--muted);margin-bottom:14px;text-align:right}
+  .divider{height:3px;background:var(--teal);border-radius:2px;margin-bottom:20px}
+  .progress-bar-wrap{display:flex;align-items:center;gap:12px;height:24px;margin-bottom:20px}
+  .progress-track{flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+  .progress-fill{height:100%;background:var(--teal);border-radius:2px;width:0%;transition:width .3s ease}
+  .progress-label{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);white-space:nowrap;min-width:44px;text-align:right}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .cell{background:var(--card);padding:20px;transition:background .15s}
+  .cell:hover{background:#f7f5f1}
+  .phase-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .phase-label::before{content:'';display:block;width:10px;height:10px;border-radius:50%;background:currentColor;flex-shrink:0}
+  .section-title{font-size:12px;font-weight:600;color:var(--text);margin:12px 0 6px;padding-top:10px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px}
+  .section-title:first-of-type{border-top:none;padding-top:0}
+  .intent{font-size:9px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-left:auto}
+  .item{display:flex;align-items:flex-start;gap:8px;padding:5px 0;cursor:pointer;border-radius:4px;transition:background .1s}
+  .item:hover{background:#f0ede8;margin:0 -4px;padding-left:4px;padding-right:4px}
+  .checkbox{width:16px;height:16px;border:1.5px solid var(--border);border-radius:3px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;transition:all .15s;color:white;background:transparent}
+  .item.checked .item-text{text-decoration:line-through;color:var(--muted)}
+  .item-text{font-size:12px;line-height:1.5;color:var(--text)}
+  .note{font-size:11px;color:var(--muted);font-style:italic;margin:4px 0 2px 24px;line-height:1.4}
+  code{font-family:'DM Mono',monospace;font-size:11px;background:#f0ede8;padding:1px 4px;border-radius:3px;color:var(--teal)}
+  .reset-btn{display:block;margin:20px auto 0;background:none;border:1px solid var(--border);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;padding:7px 20px;border-radius:20px;cursor:pointer;transition:all .15s}
+  .reset-btn:hover{border-color:var(--teal);color:var(--teal)}
+  @media(max-width:600px){.grid{grid-template-columns:1fr}.page-title{text-align:left}}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <div class="header-top">
+      <span class="badge">@zsutherapy</span>
+      <span class="badge">Massage, Reflexology, Aromatherapy · Brockley SE4</span>
+    </div>
+    <p class="page-title">Google Business Profile — Local Visibility Plan</p>
+    <div class="divider"></div>
+  </div>
+  <div class="progress-bar-wrap">
+    <div class="progress-track"><div class="progress-fill" id="fill"></div></div>
+    <div class="progress-label" id="prog">0 / 0</div>
+  </div>
+  <div class="grid">
+    <div class="cell">
+      <div class="phase-label" style="color:var(--teal)">One-off Setup (do once)</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Business Details</div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Log in at business.google.com</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Business name: use the exact registered trading name (Zsu Therapy)</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Category: Massage Therapist — confirm this is available in Google’s list before setting</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Add secondary categories only if Google offers them (e.g. Reflexologist, Aromatherapist)</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Address: Renaissance Yoga &amp; Wellbeing, Mantle Road, Brockley SE4 2EW</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Phone number added and correct</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Website: zsutherapy.com</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Booking link: zsutherapy.com/book-online (under Appointment URL)</span></div>
+      <div class="section-title">Opening Hours</div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Monday — 10:00 to 20:00</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Tuesday — 10:00 to 20:00</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Wednesday — 10:00 to 20:00</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Friday — 10:00 to 16:00</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Saturday — 10:00 to 16:00</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Sunday — closed</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Thursday — closed (day off)</span></div>
+      <p class="note">Keep hours in sync with website and Fresha at all times</p>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--green)">Profile Content</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Description (250 words max)</div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Write in plain, warm language — not keyword-stuffed</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Include: Brockley, SE4, treatment names, 15 years of practice</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Match tone and wording to the website and Instagram bio exactly</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">End with a gentle invitation to book</span></div>
+      <div class="section-title">Photos (upload at setup, add monthly)</div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Treatment room at Renaissance Yoga &amp; Wellbeing</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Hands-on treatment shots</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Oils, equipment, room details</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Exterior of venue (helps clients find you)</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Zsu’s portrait (same one used on website and Instagram)</span></div>
+      <p class="note">Consistent imagery across all channels builds recognition</p>
+      <div class="section-title">Services Section</div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Add each treatment as a service with description and price</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Use the same treatment names as the website — no variations</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Deep Tissue Massage, Aromatherapy, Pregnancy Massage, Reflexology, Thai Yoga Massage</span></div>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--orange)">Reviews — The Highest-Return Habit</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Asking for Reviews</div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">After a session the client clearly enjoyed, send a short follow-up</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">“If you have a moment, a Google review would mean a lot — here’s the link”</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Save your direct Google review link on your phone for quick sending</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Aim for 2 new reviews per month — consistency matters more than volume</span></div>
+      <p class="note">A warm, personal ask works far better than an automated prompt</p>
+      <div class="section-title">Responding to Reviews</div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Reply to every review within 48 hours — positive and negative</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Keep replies warm, specific, and brief</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Never copy-paste the same response — it reads as automated</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Share standout reviews on Instagram Stories</span></div>
+      <div class="section-title">Proactive Q&amp;A</div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Add your own Q&amp;A entries before clients ask them</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">“Is pregnancy massage safe?” “Do I need to undress?” “How do I book?”</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Check Q&amp;A monthly for new questions needing answers</span></div>
+      <p class="note">Unanswered questions reduce trust — get there first</p>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--purple)">Weekly Routine (10 minutes)</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Every Week</div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Post one Google Business update — reuse Instagram content but adapt for search intent</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Availability or seasonal angle works well; treatment education works better than general wellness</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Check for new reviews and reply</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Check Q&amp;A for anything needing a response</span></div>
+      <div class="section-title">Every Month</div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Add at least 2 new photos</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Review profile insights: searches, views, direction requests, booking clicks</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Check that hours, description, and booking link are still accurate</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Confirm treatment names and wording match website and Instagram</span></div>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--red)">The Local Acquisition Loop</div>
+      <div class="section-title" style="border-top:none;padding-top:0">How Google Fits In</div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Search: client searches “massage Brockley” or “pregnancy massage SE4”</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Profile: they find Zsu Therapy — photos, reviews, and description build trust</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Website: they click through and read about treatments</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Booking: they book via Fresha or Wix Bookings</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Review: after a great session, they leave a review</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Repeat: that review helps the next person find Zsu</span></div>
+      <p class="note">Each step in the loop supports the next — Google is the starting point, not the whole system</p>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--yellow)">Consistency Across Channels</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Check These Match Everywhere</div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Business name: Zsu Therapy (same on Google, website, Instagram, Fresha)</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Treatment names: Deep Tissue, Aromatherapy, Pregnancy Massage, Reflexology, Thai Yoga Massage</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Address: Renaissance Yoga &amp; Wellbeing, Mantle Road, Brockley SE4 2EW</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Booking link: zsutherapy.com/book-online</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Phone: same number across all platforms</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Bio tone: calm, warm, and specific — no keyword stuffing</span></div>
+      <p class="note">Inconsistency confuses both Google and clients — audit quarterly</p>
+    </div>
+
+  </div>
+  <button class="reset-btn">&#8635; Reset all</button>
+</div>
+<script src="../js/zsu-core.js"></script>
+<script>ZSU.initChecklist('google-business-profile');</script>
+</body>
+</html>

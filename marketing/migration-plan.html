@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zsu Therapy — Migration Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#faf8f4;--card:#fff;--border:#e0dbd4;--text:#1a1a1a;--muted:#666;--teal:#4db0db;--green:#6db43b;--orange:#e8821e;--purple:#493177;--red:#d83d3a;--yellow:#b8a800}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;padding:32px 20px 48px}
+  .wrapper{max-width:900px;margin:0 auto}
+  .header{margin-bottom:20px}
+  .header-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+  .badge{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+  .page-title{font-size:14px;color:var(--muted);margin-bottom:14px;text-align:right}
+  .divider{height:3px;background:var(--teal);border-radius:2px;margin-bottom:20px}
+  .progress-bar-wrap{display:flex;align-items:center;gap:12px;height:24px;margin-bottom:20px}
+  .progress-track{flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+  .progress-fill{height:100%;background:var(--teal);border-radius:2px;width:0%;transition:width .3s ease}
+  .progress-label{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);white-space:nowrap;min-width:44px;text-align:right}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .cell{background:var(--card);padding:20px;transition:background .15s}
+  .cell:hover{background:#f7f5f1}
+  .phase-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .phase-label::before{content:'';display:block;width:10px;height:10px;border-radius:50%;background:currentColor;flex-shrink:0}
+  .section-title{font-size:12px;font-weight:600;color:var(--text);margin:12px 0 6px;padding-top:10px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px}
+  .section-title:first-of-type{border-top:none;padding-top:0}
+  .intent{font-size:9px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-left:auto}
+  .item{display:flex;align-items:flex-start;gap:8px;padding:5px 0;cursor:pointer;border-radius:4px;transition:background .1s}
+  .item:hover{background:#f0ede8;margin:0 -4px;padding-left:4px;padding-right:4px}
+  .checkbox{width:16px;height:16px;border:1.5px solid var(--border);border-radius:3px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;transition:all .15s;color:white;background:transparent}
+  .item.checked .item-text{text-decoration:line-through;color:var(--muted)}
+  .item-text{font-size:12px;line-height:1.5;color:var(--text)}
+  .note{font-size:11px;color:var(--muted);font-style:italic;margin:4px 0 2px 24px;line-height:1.4}
+  code{font-family:'DM Mono',monospace;font-size:11px;background:#f0ede8;padding:1px 4px;border-radius:3px;color:var(--teal)}
+  .reset-btn{display:block;margin:20px auto 0;background:none;border:1px solid var(--border);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;padding:7px 20px;border-radius:20px;cursor:pointer;transition:all .15s}
+  .reset-btn:hover{border-color:var(--teal);color:var(--teal)}
+  @media(max-width:600px){.grid{grid-template-columns:1fr}.page-title{text-align:left}}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <div class="header-top">
+      <span class="badge">@zsutherapy</span>
+      <span class="badge">Massage, Reflexology, Aromatherapy · Brockley SE4</span>
+    </div>
+    <p class="page-title">Wix to Self-Hosted — Ownership and Flexibility Plan</p>
+    <div class="divider"></div>
+  </div>
+  <div class="progress-bar-wrap">
+    <div class="progress-track"><div class="progress-fill" id="fill"></div></div>
+    <div class="progress-label" id="prog">0 / 0</div>
+  </div>
+  <div class="grid">
+    <div class="cell">
+      <div class="phase-label" style="color:var(--teal)">Why Migrate — The Real Goal</div>
+      <div class="section-title" style="border-top:none;padding-top:0">This Is About Control, Not Just Cost</div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Reduced platform lock-in — own your site, not just rent it</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Portability — move to any platform later without a redesign</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Lower monthly cost is a benefit, but not the main reason</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Potential annual saving: approximately £800–900 (treat as approximate, not guaranteed)</span></div>
+      <p class="note">Only migrate if the timing is right — a rushed migration causes more problems than it solves</p>
+      <div class="section-title">When It Makes Sense to Migrate</div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">When the new site is fully built and tested — never before</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">When you have time to do it carefully across 2–3 weekends</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">When booking, SEO, and email continuity are the top priorities</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">If Wix starts limiting your growth or the cost becomes harder to justify</span></div>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--green)">Phase 0 — Before You Touch Anything</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Backup Everything First</div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Copy all text content from every page — all 12 pages</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Download all images from Wix Media Manager</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Export your email subscriber list as CSV</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Screenshot your current Wix DNS settings</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Write down every URL slug exactly as they appear</span></div>
+      <div class="item" data-color="--green"><div class="checkbox"></div><span class="item-text">Note your Wix renewal date — do not cancel until the new site is live</span></div>
+      <p class="note">Do not skip this phase — it is the safety net for everything that follows</p>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--orange)">Phase 1 — Hosting and Email</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Hosting: Hostinger (recommended starting point)</div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Sign up at hostinger.com — Business Shared Hosting (~£2.99/month)</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Do not transfer your domain yet — get hosting working first</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Install WordPress via the one-click installer</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Test on the temporary URL before touching anything live</span></div>
+      <div class="section-title">Email: Zoho Mail (free) or Google Workspace (£5.20/month)</div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Zoho: sign up at zoho.com/mail, add zsutherapy.com, create zsu@zsutherapy.com</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Google Workspace: familiar Gmail interface with custom domain</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Set up and test email before transferring the domain</span></div>
+      <div class="item" data-color="--orange"><div class="checkbox"></div><span class="item-text">Confirm deliverability with a test send before going live</span></div>
+      <p class="note">Email migration carries real risk — test thoroughly before transferring DNS</p>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--purple)">Phase 2 — Build the WordPress Site</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Theme and Builder</div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Theme: Astra or Kadence (free, fast, well supported)</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Page builder: Elementor free — closest feel to Wix drag-and-drop</span></div>
+      <div class="section-title">Essential Plugins (all free)</div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Yoast SEO — page titles, meta descriptions, sitemap</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">Redirection — preserves all 12 existing URLs (do not skip this)</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">WP Forms Lite — contact form</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">UpdraftPlus — automatic backups</span></div>
+      <div class="section-title">Recreate All 12 Pages</div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">/ · /treatments · /deep-tissue-massage · /aromatherapy-massage</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">/pregnancy-massage · /reflexology · /thai-yoga-massage</span></div>
+      <div class="item" data-color="--purple"><div class="checkbox"></div><span class="item-text">/gift-vouchers · /book-online · /hours-locations · /about · /faq</span></div>
+      <p class="note">Set up URL redirects in the Redirection plugin before going live — this protects Google rankings</p>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--red)">Phase 3 — Bookings</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Option A: Fresha (recommended)</div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Free account at fresha.com — purpose-built for therapists</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Set up all treatments, durations, and prices</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Embed the booking widget on /book-online</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Update Google Business Profile booking link</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Update Instagram bio link</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Test the full booking flow from a phone before promoting</span></div>
+      <p class="note">Booking continuity is more important than speed — test every step</p>
+      <div class="section-title">Option B: Simply Schedule Appointments (WordPress plugin)</div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Free basic version handles simple appointment booking</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">Keeps everything within WordPress</span></div>
+      <div class="item" data-color="--red"><div class="checkbox"></div><span class="item-text">More setup required than Fresha</span></div>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--yellow)">Phase 4 — Domain Transfer and Launch</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Domain Transfer (do last)</div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Unlock domain in Wix: Domains &gt; Manage &gt; Transfer Away</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Get the EPP/Auth code from Wix</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Initiate transfer at Hostinger or move DNS to Cloudflare (free, recommended)</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Wait 24–48 hours for propagation — plan for brief downtime</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Do this on a quiet day with low bookings</span></div>
+      <div class="section-title">Launch Readiness Checklist</div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">All 12 pages live and tested on the temporary URL</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">All URL redirects set up and tested</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Email working on new setup</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Booking flow tested end-to-end from a phone</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Google Business Profile updated with new booking link if changed</span></div>
+      <div class="item" data-color="--yellow"><div class="checkbox"></div><span class="item-text">Fallback plan agreed: if migration stalls, Wix stays live until it is resolved</span></div>
+      <p class="note">Do not cancel Wix until every dependency above is confirmed working</p>
+    </div>
+    <div class="cell">
+      <div class="phase-label" style="color:var(--teal)">Cost Comparison (approximate)</div>
+      <div class="section-title" style="border-top:none;padding-top:0">Current Wix Setup</div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Wix plan: ~£31.67/month</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Email marketing: ~£30.29/month</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Business email: ~£7.01/month</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Reviews app (Fera): £8.61/month</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Site booster: ~£2.76/month</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Domain: ~£1.54/month</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Total: approximately £77/month (£924/year)</span></div>
+      <div class="section-title">Self-Hosted Setup</div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Hostinger hosting: ~£2.99/month</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Email: £0 (Zoho) or £5.20 (Google Workspace)</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Email marketing: £0 (Brevo free tier covers this list size)</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Domain: ~£1.54/month (same)</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Total: approximately £5–9/month (£60–108/year)</span></div>
+      <div class="item" data-color="--teal"><div class="checkbox"></div><span class="item-text">Approximate saving: £816–864/year</span></div>
+      <p class="note">Savings are approximate and depend on actual usage and plan choices</p>
+    </div>
+
+  </div>
+  <button class="reset-btn">&#8635; Reset all</button>
+</div>
+<script src="../js/zsu-core.js"></script>
+<script>ZSU.initChecklist('migration-plan');</script>
+</body>
+</html>
