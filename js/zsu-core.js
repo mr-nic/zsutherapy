@@ -3,15 +3,15 @@
 // mr-nic / zsutherapy · github.com/mr-nic
 // ─────────────────────────────────────────────
 
-// ── CONFIG ── change these lines only ────────────
-const ZSU_PWD = btoa('ZSU2026');             // btoa('yournewpassword') to change
-const BIN_ID  = '6a18593221f9ee59d295b3a1'; // JSONBin bin ID
-const BIN_KEY = '$2a$10$OdYA/kh8jDj.Qe9Mf3vquOoVxDjF2.nr2M7mtW39Z0C1rL1sqtwie'; // paste your JSONBin API key here
+// ── CONFIG ── change these lines only ────────
+const ZSU_PWD = btoa('ZSU2026');              // btoa('yournewpassword') to change
+const BIN_ID  = '6a18593221f9ee59d295b3a1';  // JSONBin bin ID
+const BIN_KEY = '$2a$10$OdYA/kh8jDj.Qe9Mf3vquOoVxDjF2.nr2M7mtW39Z0C1rL1sqtwie';  // your JSONBin API key
 // ─────────────────────────────────────────────
 
 const ZSU = {
 
-  // ── Password ─────────────────────────
+  // ── Password ─────────────────────────────
   auth() {
     if (sessionStorage.getItem('zsu-auth') === ZSU_PWD) return true;
     const input = prompt('Password');
@@ -23,7 +23,7 @@ const ZSU = {
     return false;
   },
 
-  // ── JSONBin: load full state ─────────────────
+  // ── JSONBin: load full state ──────────────
   async _load() {
     try {
       const res  = await fetch('https://api.jsonbin.io/v3/b/' + BIN_ID + '/latest', {
@@ -34,7 +34,7 @@ const ZSU = {
     } catch(e) { console.warn('JSONBin load failed', e); return {}; }
   },
 
-  // ── JSONBin: save full state ─────────────────
+  // ── JSONBin: save full state ──────────────
   async _save(state) {
     try {
       await fetch('https://api.jsonbin.io/v3/b/' + BIN_ID, {
@@ -48,7 +48,7 @@ const ZSU = {
     } catch(e) { console.warn('JSONBin save failed', e); }
   },
 
-  // ── Save page state ────────────────────────
+  // ── Save page state ───────────────────────
   async save(pageKey, pageState) {
     if (BIN_KEY === 'YOUR_JSONBIN_API_KEY_HERE') return;
     const all = await this._load();
@@ -56,14 +56,14 @@ const ZSU = {
     await this._save(all);
   },
 
-  // ── Load page state ────────────────────────
+  // ── Load page state ───────────────────────
   async load(pageKey) {
     if (BIN_KEY === 'YOUR_JSONBIN_API_KEY_HERE') return null;
     const all = await this._load();
     return all[pageKey] || null;
   },
 
-  // ── Clear page state ───────────────────────
+  // ── Clear page state ──────────────────────
   async clear(pageKey) {
     if (BIN_KEY === 'YOUR_JSONBIN_API_KEY_HERE') return;
     const all = await this._load();
@@ -71,7 +71,7 @@ const ZSU = {
     await this._save(all);
   },
 
-  // ── Checklist: wire up items ────────────────
+  // ── Checklist: wire up items ──────────────
   initChecklist(pageKey, onUpdate) {
     if (!this.auth()) return;
 
@@ -96,7 +96,7 @@ const ZSU = {
         const cb  = item.querySelector('.checkbox');
         const col = item.dataset.color;
         if (cb) {
-          cb.textContent       = item.classList.contains('checked') ? '\u2713' : '';
+          cb.textContent       = item.classList.contains('checked') ? '✓' : '';
           cb.style.background  = item.classList.contains('checked') ? col : 'transparent';
           cb.style.borderColor = item.classList.contains('checked') ? col : 'var(--border)';
         }
@@ -113,7 +113,7 @@ const ZSU = {
             const cb  = item.querySelector('.checkbox');
             const col = item.dataset.color;
             if (cb) {
-              cb.textContent       = '\u2713';
+              cb.textContent       = '✓';
               cb.style.background  = col;
               cb.style.borderColor = col;
             }
