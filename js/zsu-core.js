@@ -5,8 +5,8 @@
 
 // ── CONFIG ── change these two lines only ────
 const ZSU_PWD   = btoa('ZSU2026');          // btoa('yournewpassword') to change
-const GIST_ID   = 'YOUR_GIST_ID_HERE';     // replace after creating Gist (see SETUP.md)
-const GH_TOKEN  = 'YOUR_PAT_HERE';         // replace with your GitHub Personal Access Token
+const GIST_ID   = 'fbda0367d0b870cc57cc74ca7a644f7f';     // replace after creating Gist (see SETUP.md)
+const GH_TOKEN  = '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';     // replace with your GitHub Personal Access Token
 // ─────────────────────────────────────────────
 
 const ZSU = {
