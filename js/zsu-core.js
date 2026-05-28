@@ -5,7 +5,7 @@
 
 // ── CONFIG ── change these lines only ────────
 const ZSU_PWD = btoa('ZSU2026');              // btoa('yournewpassword') to change
-const BIN_ID  = '6a18593221f9ee59d295b3a1';  // JSONBin bin ID
+const BIN_ID  = '6a186586ddf5aa59f7707c87';  // JSONBin bin ID
 const BIN_KEY = '$2a$10$OdYA/kh8jDj.Qe9Mf3vquOoVxDjF2.nr2M7mtW39Z0C1rL1sqtwie';  // your JSONBin API key
 // ─────────────────────────────────────────────
 
