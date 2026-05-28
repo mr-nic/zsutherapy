@@ -6,7 +6,7 @@
 // ── CONFIG ── change these lines only ────────
 const ZSU_PWD = btoa('ZSU2026');              // btoa('yournewpassword') to change
 const BIN_ID  = '6a186586ddf5aa59f7707c87';  // JSONBin bin ID
-const BIN_KEY = '$2a$10$OdYA/kh8jDj.Qe9Mf3vquOoVxDjF2.nr2M7mtW39Z0C1rL1sqtwie';  // your JSONBin API key
+const BIN_KEY = '$2a$10$g0Qh3AnWCj/sIspat7X1LO7AeYATGYx.YkA3DBRxsoqSF55R87YCW';  // your JSONBin API key
 // ─────────────────────────────────────────────
 
 const ZSU = {
@@ -27,7 +27,7 @@ const ZSU = {
   async _load() {
     try {
       const res  = await fetch('https://api.jsonbin.io/v3/b/' + BIN_ID + '/latest', {
-        headers: { 'X-Access-Key': BIN_KEY }
+        headers: { 'X-Master-Key': BIN_KEY }
       });
       const data = await res.json();
       return data.record || {};
@@ -41,7 +41,7 @@ const ZSU = {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          'X-Access-Key': BIN_KEY
+          'X-Master-Key': BIN_KEY
         },
         body: JSON.stringify(state)
       });
