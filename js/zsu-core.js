@@ -3,15 +3,15 @@
 // mr-nic / zsutherapy · github.com/mr-nic
 // ─────────────────────────────────────────────
 
-// ── CONFIG ── change these two lines only ────
-const ZSU_PWD   = btoa('ZSU2026');          // btoa('yournewpassword') to change
-const GIST_ID   = 'fbda0367d0b870cc57cc74ca7a644f7f';     // replace after creating Gist (see SETUP.md)
-const GH_TOKEN  = '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';     // replace with your GitHub Personal Access Token
+// ── CONFIG ── change these lines only ────────────
+const ZSU_PWD = btoa('ZSU2026');             // btoa('yournewpassword') to change
+const BIN_ID  = '6a18593221f9ee59d295b3a1'; // JSONBin bin ID
+const BIN_KEY = '$2a$10$OdYA/kh8jDj.Qe9Mf3vquOoVxDjF2.nr2M7mtW39Z0C1rL1sqtwie'; // paste your JSONBin API key here
 // ─────────────────────────────────────────────
 
 const ZSU = {
 
-  // ── Password ─────────────────────────────
+  // ── Password ─────────────────────────
   auth() {
     if (sessionStorage.getItem('zsu-auth') === ZSU_PWD) return true;
     const input = prompt('Password');
@@ -23,60 +23,62 @@ const ZSU = {
     return false;
   },
 
-  // ── Gist: save page state ─────────────────
-  async save(pageKey, state) {
-    if (GIST_ID === 'YOUR_GIST_ID_HERE') return; // not yet configured
-    const files = {};
-    files[pageKey + '.json'] = { content: JSON.stringify(state) };
+  // ── JSONBin: load full state ─────────────────
+  async _load() {
     try {
-      await fetch('https://api.github.com/gists/' + GIST_ID, {
-        method: 'PATCH',
-        headers: {
-          'Authorization': 'token ' + GH_TOKEN,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ files })
+      const res  = await fetch('https://api.jsonbin.io/v3/b/' + BIN_ID + '/latest', {
+        headers: { 'X-Master-Key': BIN_KEY }
       });
-    } catch(e) { console.warn('Gist save failed', e); }
+      const data = await res.json();
+      return data.record || {};
+    } catch(e) { console.warn('JSONBin load failed', e); return {}; }
   },
 
-  // ── Gist: load page state ─────────────────
+  // ── JSONBin: save full state ─────────────────
+  async _save(state) {
+    try {
+      await fetch('https://api.jsonbin.io/v3/b/' + BIN_ID, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Master-Key': BIN_KEY
+        },
+        body: JSON.stringify(state)
+      });
+    } catch(e) { console.warn('JSONBin save failed', e); }
+  },
+
+  // ── Save page state ────────────────────────
+  async save(pageKey, pageState) {
+    if (BIN_KEY === 'YOUR_JSONBIN_API_KEY_HERE') return;
+    const all = await this._load();
+    all[pageKey] = pageState;
+    await this._save(all);
+  },
+
+  // ── Load page state ────────────────────────
   async load(pageKey) {
-    if (GIST_ID === 'YOUR_GIST_ID_HERE') return null;
-    try {
-      const res  = await fetch('https://api.github.com/gists/' + GIST_ID,
-        { headers: { 'Authorization': 'token ' + GH_TOKEN } });
-      const gist = await res.json();
-      const file = gist.files && gist.files[pageKey + '.json'];
-      return file ? JSON.parse(file.content) : null;
-    } catch(e) { console.warn('Gist load failed', e); return null; }
+    if (BIN_KEY === 'YOUR_JSONBIN_API_KEY_HERE') return null;
+    const all = await this._load();
+    return all[pageKey] || null;
   },
 
-  // ── Gist: clear page state ────────────────
+  // ── Clear page state ───────────────────────
   async clear(pageKey) {
-    if (GIST_ID === 'YOUR_GIST_ID_HERE') return;
-    const files = {};
-    files[pageKey + '.json'] = { content: '[]' };
-    try {
-      await fetch('https://api.github.com/gists/' + GIST_ID, {
-        method: 'PATCH',
-        headers: {
-          'Authorization': 'token ' + GH_TOKEN,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ files })
-      });
-    } catch(e) { console.warn('Gist clear failed', e); }
+    if (BIN_KEY === 'YOUR_JSONBIN_API_KEY_HERE') return;
+    const all = await this._load();
+    all[pageKey] = [];
+    await this._save(all);
   },
 
-  // ── Checklist: wire up items ──────────────
+  // ── Checklist: wire up items ────────────────
   initChecklist(pageKey, onUpdate) {
     if (!this.auth()) return;
 
-    const items  = document.querySelectorAll('.item');
-    const fill   = document.getElementById('fill');
-    const prog   = document.getElementById('prog');
-    const total  = items.length;
+    const items = document.querySelectorAll('.item');
+    const fill  = document.getElementById('fill');
+    const prog  = document.getElementById('prog');
+    const total = items.length;
     if (prog) prog.textContent = '0 / ' + total;
 
     const update = () => {
@@ -94,9 +96,9 @@ const ZSU = {
         const cb  = item.querySelector('.checkbox');
         const col = item.dataset.color;
         if (cb) {
-          cb.textContent     = item.classList.contains('checked') ? '✓' : '';
-          cb.style.background   = item.classList.contains('checked') ? col : 'transparent';
-          cb.style.borderColor  = item.classList.contains('checked') ? col : 'var(--border)';
+          cb.textContent       = item.classList.contains('checked') ? '\u2713' : '';
+          cb.style.background  = item.classList.contains('checked') ? col : 'transparent';
+          cb.style.borderColor = item.classList.contains('checked') ? col : 'var(--border)';
         }
         update();
       });
@@ -111,7 +113,7 @@ const ZSU = {
             const cb  = item.querySelector('.checkbox');
             const col = item.dataset.color;
             if (cb) {
-              cb.textContent    = '✓';
+              cb.textContent       = '\u2713';
               cb.style.background  = col;
               cb.style.borderColor = col;
             }
@@ -129,7 +131,7 @@ const ZSU = {
           i.classList.remove('checked');
           const cb = i.querySelector('.checkbox');
           if (cb) {
-            cb.textContent    = '';
+            cb.textContent       = '';
             cb.style.background  = 'transparent';
             cb.style.borderColor = 'var(--border)';
           }
