@@ -27,7 +27,7 @@ const ZSU = {
   async _load() {
     try {
       const res  = await fetch('https://api.jsonbin.io/v3/b/' + BIN_ID + '/latest', {
-        headers: { 'X-Master-Key': BIN_KEY }
+        headers: { 'X-Access-Key': BIN_KEY }
       });
       const data = await res.json();
       return data.record || {};
@@ -41,7 +41,7 @@ const ZSU = {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          'X-Master-Key': BIN_KEY
+          'X-Access-Key': BIN_KEY
         },
         body: JSON.stringify(state)
       });
