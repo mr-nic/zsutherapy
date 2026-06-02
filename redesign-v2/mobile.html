@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- mobile.html · v2.5 · 2026-06-02 -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -569,6 +570,104 @@ textarea.field { min-height: 120px; resize: vertical; font-family: inherit; }
 [data-accent="yellow"] { --accent: var(--c-yellow); --accent-tint: color-mix(in oklab, var(--c-yellow) 10%, var(--paper)); }
 [data-accent="mag"]    { --accent: var(--c-mag); --accent-tint: color-mix(in oklab, var(--c-mag) 10%, var(--paper)); }
 
+
+/* ============================================================
+   REVIEWS MARQUEE
+   ============================================================ */
+.rv-marquee-wrap {
+  overflow: hidden;
+  padding: var(--s-8) 0;
+  background: var(--paper-warm);
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+}
+.rv-marquee-label {
+  text-align: center;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: var(--s-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.rv-marquee-label::before,
+.rv-marquee-label::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--border);
+}
+.rv-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: rv-scroll 52s linear infinite;
+}
+.rv-track:hover { animation-play-state: paused; }
+@keyframes rv-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.rv-card {
+  flex: 0 0 300px;
+  background: var(--paper);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-lg);
+  padding: var(--s-6);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.rv-stars { color: #f5a623; font-size: 13px; letter-spacing: 1px; }
+.rv-text {
+  font-family: var(--f-serif);
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  flex: 1;
+}
+.rv-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+.rv-name {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 500;
+}
+.rv-src {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+.rv-gbp-link {
+  text-align: center;
+  margin-top: var(--s-6);
+  padding-top: var(--s-5);
+}
+.rv-gbp-link a {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  transition: color .15s, border-color .15s;
+}
+.rv-gbp-link a:hover { color: var(--accent); border-color: var(--accent); }
+
 /* ============================================================
    PROTOTYPE-LEVEL: device wrapper + chrome
    ============================================================ */
@@ -598,139 +697,84 @@ textarea.field { min-height: 120px; resize: vertical; font-family: inherit; }
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-soft);
 }
-.site-header__inner {
+.site-header__brand-row {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  padding: 22px 0 8px;
 }
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: inherit;
+/* Logo: halfway between left edge and centre */
+.sh-logo {
+  position: absolute;
+  left: 25%;
+  transform: translateX(-50%);
+  line-height: 0;
+  display: block;
 }
-.brand__mark { flex: 0 0 auto; }
-.brand__wordmark {
+/* Name: fully centred across the row */
+.sh-name {
   font-family: var(--f-serif);
-  font-size: 19px;
+  font-size: clamp(36px, 7vw, 84px);
   font-weight: 500;
   letter-spacing: -0.01em;
-  line-height: 1.1;
-}
-.brand__wordmark em {
+  line-height: 1.0;
+  text-align: center;
+  width: 100%;
   display: block;
-  font-style: normal;
+  pointer-events: none;
+}
+/* Subtitle */
+.site-header__subtitle {
+  text-align: center;
   font-family: var(--f-mono);
-  font-size: 9px;
-  letter-spacing: 0.14em;
+  font-size: 12px;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--muted);
-  font-weight: 500;
-  margin-top: 2px;
+  width: 50%;
+  margin: 0 auto;
+  padding: 4px 0 14px;
 }
-
-.site-nav { display: flex; gap: var(--s-6); }
-.site-nav a {
-  font-size: 14px;
-  color: var(--ink-soft);
-  position: relative;
-  padding-bottom: 2px;
-}
-.site-nav a:hover, .site-nav a.current { color: var(--accent); }
-.site-nav a.current::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0; bottom: -3px;
-  height: 2px;
-  background: var(--accent);
-}
-
-.menu-toggle {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 40px; height: 40px;
-  border-radius: var(--r-md);
-  background: transparent;
-  border: 1px solid var(--border);
-}
-
-/* ============================================================
-   MOBILE MODE OVERRIDES
-   ============================================================ */
-body.mode-mobile {
-  font-size: 15px;
-}
-body.mode-mobile .site-header__inner {
-  height: 56px;
-  padding: 0 16px;
-}
-body.mode-mobile .brand__mark { width: 28px; height: 28px; }
-body.mode-mobile .brand__wordmark { font-size: 16px; }
-body.mode-mobile .brand__wordmark em { font-size: 8px; }
-body.mode-mobile .site-nav { display: none; }
-body.mode-mobile .site-header__cta { margin-left: auto; display: flex; gap: 8px; align-items: center; }
-body.mode-mobile .site-header__cta .btn--primary { padding: 8px 14px; font-size: 12px; }
-
-body.mode-mobile .shell { padding: 0 20px; max-width: 100%; }
-body.mode-mobile .section { padding: var(--s-9) 0; }
-body.mode-mobile h1.display { font-size: 42px; line-height: 1.04; }
-body.mode-mobile h1 { font-size: 30px; line-height: 1.08; }
-body.mode-mobile h2 { font-size: 26px; line-height: 1.12; }
-body.mode-mobile h3 { font-size: 19px; line-height: 1.2; }
-
-body.mode-mobile .grid-2 { grid-template-columns: 1fr; }
-body.mode-mobile .grid-3 { grid-template-columns: 1fr; }
-body.mode-mobile .hero__grid { grid-template-columns: 1fr; gap: 32px; }
-body.mode-mobile .treatments-grid { grid-template-columns: 1fr; }
-body.mode-mobile .sec-head { grid-template-columns: 1fr; gap: 16px; }
-body.mode-mobile .loc-grid { grid-template-columns: 1fr; gap: 32px; }
-body.mode-mobile .gift__inner { grid-template-columns: 1fr; gap: 32px; }
-body.mode-mobile .site-footer__grid { grid-template-columns: 1fr; gap: 32px; }
-body.mode-mobile .trust-stats { grid-template-columns: 1fr 1fr; gap: 8px; }
-body.mode-mobile .trust-quotes { grid-template-columns: 1fr; gap: 24px; }
-body.mode-mobile .ig-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
-body.mode-mobile .booking-grid { grid-template-columns: 1fr; }
-body.mode-mobile .about-grid { grid-template-columns: 1fr; gap: 32px; }
-body.mode-mobile .hero__image { aspect-ratio: 4/5; }
-
-body.mode-mobile .mobile-sticky-cta {
-  position: fixed;
-  bottom: 12px;
-  left: 12px;
-  right: 12px;
-  z-index: 60;
-  background: var(--ink);
-  color: var(--paper);
-  padding: 14px 20px;
-  border-radius: var(--r-pill);
+/* Nav */
+.site-nav {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.16);
+  gap: 0;
+  border-top: 1px solid var(--border-soft);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
-
-/* ============================================================
-   DESKTOP MODE OVERRIDES
-   ============================================================ */
-body.mode-desktop {
-  font-size: 16px;
+.site-nav::-webkit-scrollbar { display: none; }
+.site-nav a {
+  flex: 0 0 auto;
+  font-size: 13px;
+  color: var(--ink-soft);
+  padding: 10px 16px;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color .15s, border-color .15s;
 }
-body.mode-desktop .shell { max-width: 1280px; margin: 0 auto; padding: 0 56px; }
-body.mode-desktop .site-header__inner {
-  height: 72px;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 56px;
-}
+.site-nav a:hover,
+.site-nav a.current { color: var(--accent); border-bottom-color: var(--accent); }
+/* Mobile */
+body.mode-mobile .site-header__brand-row { padding: 16px 0 6px; }
+body.mode-mobile .sh-logo { left: 20%; }
+body.mode-mobile .sh-logo svg { width: 48px !important; height: 48px !important; }
+body.mode-mobile .sh-name { font-size: clamp(28px, 8vw, 52px); }
+body.mode-mobile .site-header__subtitle { width: 80%; font-size: 10px; letter-spacing: 0.16em; padding: 2px 0 10px; }
+body.mode-mobile .site-nav a { font-size: 12px; padding: 9px 12px; }
+/* Desktop */
+body.mode-desktop .sh-logo svg { width: 80px !important; height: 80px !important; }
+body.mode-desktop .site-nav a { font-size: 14px; padding: 11px 20px; }
 body.mode-desktop .brand__mark { width: 38px; height: 38px; }
-body.mode-desktop .brand__wordmark { font-size: 22px; }
-body.mode-desktop .brand__wordmark em { font-size: 9px; }
-body.mode-desktop .menu-toggle { display: none; }
-body.mode-desktop .site-nav { margin-left: 28px; }
-body.mode-desktop .site-header__cta { margin-left: auto; display: flex; gap: 12px; align-items: center; }
-body.mode-desktop .site-header__cta .btn--primary { padding: 10px 18px; font-size: 14px; }
+
+
+.menu-toggle { display: none; }
+
+
+
 
 body.mode-desktop .section { padding: var(--s-11) 0; }
 body.mode-desktop h1.display { font-size: 88px; line-height: 1.02; letter-spacing: -0.022em; }
@@ -1383,35 +1427,23 @@ body.mode-desktop .gift-card-preview__center { font-size: 36px; }
    aromatherapy, pregnancy, hours, book-online, gift-vouchers).
    ============================================================= */
 
-// ------- Logo (rainbow seven-petal mark, current site) -------
-function logoMark(size = 36, variant = 'gentle') {
-  // variant: gentle (current) | moderate (refined petals) | minimal (single-color leaf)
-  const palette = ['#d83d3a','#e8821e','#b8a800','#6db43b','#4db0db','#493177','#a13a78'];
-  if (variant === 'minimal') {
-    return `<svg class="brand__mark" width="${size}" height="${size}" viewBox="0 0 100 100" aria-hidden="true">
-      <path d="M50 14 C 64 22, 72 38, 70 56 C 68 72, 60 82, 50 86 C 40 82, 32 72, 30 56 C 28 38, 36 22, 50 14 Z" fill="currentColor"/>
-    </svg>`;
-  }
-  if (variant === 'moderate') {
-    // tighter, smaller petals
-    return `<svg class="brand__mark" width="${size}" height="${size}" viewBox="0 0 160 160" aria-hidden="true">
-      <g transform="translate(80 80)">
-        ${palette.map((c,i) => `<g transform="rotate(${i*360/7})"><path d="M0 -44 Q11 -32 10 -14 Q0 -2 -10 -14 Q-11 -32 0 -44z" fill="${c}"/></g>`).join('')}
-      </g>
-    </svg>`;
-  }
-  // gentle = current logo, just cleaner linework
+function logoMark(size = 80) {
+  // 7 stroke-only petals, spread with clear gaps — matches Zsu Therapy brand mark
+  const colors = ['#d83d3a','#e8821e','#b8a800','#6db43b','#4db0db','#493177','#a13a78'];
+  const sw = Math.max(2, size * 0.06);
+  const rot = 360 / 7;
+  // Petals are narrow and pushed outward — clear gap between all seven
   return `<svg class="brand__mark" width="${size}" height="${size}" viewBox="0 0 160 160" aria-hidden="true">
     <g transform="translate(80 80)">
-      ${palette.map((c,i) => `<g transform="rotate(${i*360/7})"><path d="M0 -52 Q15 -38 14 -18 Q0 -4 -14 -18 Q-15 -38 0 -52z" fill="${c}"/></g>`).join('')}
+      ${colors.map((c,i) => `<g transform="rotate(${(i * rot).toFixed(2)})"><path d="M0 -65 C10 -55 10 -32 0 -26 C-10 -32 -10 -55 0 -65Z" fill="none" stroke="${c}" stroke-width="${sw}" stroke-linecap="round"/></g>`).join('')}
     </g>
   </svg>`;
 }
 
 function brand() {
   return `<a class="brand" href="#home">
-    ${logoMark(32)}
-    <span class="brand__wordmark">Zsu Therapy<em>Massage · Reflexology · Aromatherapy</em></span>
+    ${logoMark(80)}
+    <span class="brand__wordmark">Zsu Therapy</span>
   </a>`;
 }
 
@@ -1419,22 +1451,20 @@ function siteHeader(current) {
   const link = (href, label) =>
     `<a href="#${href}" class="${current === href ? 'current' : ''}">${label}</a>`;
   return `<header class="site-header">
-    <div class="site-header__inner">
-      ${brand()}
-      <nav class="site-nav" aria-label="Primary">
-        ${link('treatments', 'Treatments')}
-        ${link('about', 'About')}
-        ${link('hours-locations', 'Hours & Contact')}
-        ${link('gift-vouchers', 'Gift Vouchers')}
-        ${link('faq', 'FAQ')}
-      </nav>
-      <div class="site-header__cta">
-        <a href="#book-online" class="btn btn--primary">Book online</a>
-        <button class="menu-toggle" aria-label="Menu">
-          <svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="0" y1="2" x2="18" y2="2"/><line x1="0" y1="10" x2="18" y2="10"/></svg>
-        </button>
-      </div>
+    <div class="site-header__brand-row">
+      <a class="sh-logo" href="#home" aria-label="Zsu Therapy home">${logoMark(80)}</a>
+      <span class="sh-name">Zsu Therapy</span>
     </div>
+    <div class="site-header__subtitle">Massage &middot; Reflexology &middot; Aromatherapy</div>
+    <nav class="site-nav" aria-label="Primary">
+      ${link('home',            'Home')}
+      ${link('treatments',      'Treatments')}
+      ${link('gift-vouchers',   'Gift Vouchers')}
+      ${link('book-online',     'Book Online')}
+      ${link('hours-locations', 'Hours &amp; Contact')}
+      ${link('about',           'About')}
+      ${link('faq',             'FAQ')}
+    </nav>
   </header>`;
 }
 
@@ -1472,6 +1502,12 @@ function siteFooter() {
           <a href="mailto:wellbeing@zsutherapy.com">wellbeing@zsutherapy.com</a>
           <a href="tel:+447821595971">+44 7821 595971</a>
           <span>Mantle Road, Brockley · London SE4 2EW</span>
+        </div>
+        <div class="footer-gbp" style="margin-top: 16px;">
+          <a href="https://www.google.com/search?q=Zsu+Therapy+Brockley+London" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);padding-bottom:2px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            Leave us a Google review
+          </a>
         </div>
       </div>
 
@@ -1599,7 +1635,7 @@ function screenHome() {
           <div>
             <div class="eyebrow"><span class="dot"></span>An independent practice · Brockley SE4</div>
             <h1 class="hero__title" style="font-size: clamp(36px, 7vw, 84px); margin-top: 24px;">
-              Relax and heal <em>with Zsu Therapy.</em>
+              Relax, Revitalise and <em>Rejuvenate with Zsu.</em>
             </h1>
             <p class="hero__sub">
               Personalised, caring and outcome-based massage, reflexology and aromatherapy treatments in South East London — since 2010.
@@ -1679,7 +1715,14 @@ function screenHome() {
 
         <div class="loc-grid">
           <div class="map-ph" style="--accent: var(--c-teal)">
-            <span class="map-ph__label">Google Map · embedded on live site</span>
+            <iframe
+  src="https://maps.google.com/maps?q=Renaissance+Yoga+%26+Wellbeing,+Mantle+Road,+Brockley,+London+SE4+2EW&output=embed"
+  width="100%" height="400"
+  style="border:0;border-radius:var(--r-lg);display:block;"
+  allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+  title="Zsu Therapy location map">
+</iframe>
+            <span class="map-ph__label" style="display:none">placeholder</span>
           </div>
           <div>
             <div class="eyebrow"><span class="dot"></span>Address</div>
@@ -1706,6 +1749,129 @@ function screenHome() {
         </div>
       </div>
     </section>
+
+
+    <div class="rv-marquee-wrap">
+      <div class="rv-marquee-label">What clients say</div>
+      <div class="rv-track" id="rv-track">
+        <div class="rv-card">
+  <div class="rv-stars">★★★★★</div>
+  <p class="rv-text">Incredible massage — really alleviated tightness and pain in my lower back. Will be recommending to everyone.</p>
+  <div class="rv-foot">
+    <span class="rv-name">Oliver K.</span>
+    <span class="rv-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google Review</span>
+  </div>
+</div><div class="rv-card">
+  <div class="rv-stars">★★★★★</div>
+  <p class="rv-text">Considerate, knowledgeable and thorough. Felt calm and well looked after. It's already made a real difference.</p>
+  <div class="rv-foot">
+    <span class="rv-name">Becky R.</span>
+    <span class="rv-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google Review</span>
+  </div>
+</div><div class="rv-card">
+  <div class="rv-stars">★★★★★</div>
+  <p class="rv-text">I've been coming to Zsu for years. She always remembers exactly what my body needs and the results are consistently brilliant.</p>
+  <div class="rv-foot">
+    <span class="rv-name">Sarah M.</span>
+    <span class="rv-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google Review</span>
+  </div>
+</div><div class="rv-card">
+  <div class="rv-stars">★★★★★</div>
+  <p class="rv-text">Best massage therapist in South East London. The space is peaceful, the work is thorough, and Zsu really listens.</p>
+  <div class="rv-foot">
+    <span class="rv-name">Tom W.</span>
+    <span class="rv-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google Review</span>
+  </div>
+</div><div class="rv-card">
+  <div class="rv-stars">★★★★★</div>
+  <p class="rv-text">Reflexology with Zsu is genuinely transformative. I sleep so much better after every session. Highly recommended.</p>
+  <div class="rv-foot">
+    <span class="rv-name">Priya S.</span>
+    <span class="rv-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google Review</span>
+  </div>
+</div><div class="rv-card">
+  <div class="rv-stars">★★★★★</div>
+  <p class="rv-text">Booked for pregnancy massage — felt completely safe and supported throughout. Such a skilled and caring therapist.</p>
+  <div class="rv-foot">
+    <span class="rv-name">Laura C.</span>
+    <span class="rv-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google Review</span>
+  </div>
+</div><div class="rv-card">
+  <div class="rv-stars">★★★★★</div>
+  <p class="rv-text">Deep tissue work that actually reaches the problem. No fluff, no filler — just proper, effective treatment.</p>
+  <div class="rv-foot">
+    <span class="rv-name">James H.</span>
+    <span class="rv-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google Review</span>
+  </div>
+</div><div class="rv-card">
+  <div class="rv-stars">★★★★★</div>
+  <p class="rv-text">I leave every session feeling like a different person. Zsu has an exceptional ability to find and release tension you didn't even know was there.</p>
+  <div class="rv-foot">
+    <span class="rv-name">Anna T.</span>
+    <span class="rv-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google Review</span>
+  </div>
+</div><div class="rv-card">
+  <div class="rv-stars">★★★★★</div>
+  <p class="rv-text">Incredible massage — really alleviated tightness and pain in my lower back. Will be recommending to everyone.</p>
+  <div class="rv-foot">
+    <span class="rv-name">Oliver K.</span>
+    <span class="rv-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google Review</span>
+  </div>
+</div><div class="rv-card">
+  <div class="rv-stars">★★★★★</div>
+  <p class="rv-text">Considerate, knowledgeable and thorough. Felt calm and well looked after. It's already made a real difference.</p>
+  <div class="rv-foot">
+    <span class="rv-name">Becky R.</span>
+    <span class="rv-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google Review</span>
+  </div>
+</div><div class="rv-card">
+  <div class="rv-stars">★★★★★</div>
+  <p class="rv-text">I've been coming to Zsu for years. She always remembers exactly what my body needs and the results are consistently brilliant.</p>
+  <div class="rv-foot">
+    <span class="rv-name">Sarah M.</span>
+    <span class="rv-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google Review</span>
+  </div>
+</div><div class="rv-card">
+  <div class="rv-stars">★★★★★</div>
+  <p class="rv-text">Best massage therapist in South East London. The space is peaceful, the work is thorough, and Zsu really listens.</p>
+  <div class="rv-foot">
+    <span class="rv-name">Tom W.</span>
+    <span class="rv-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google Review</span>
+  </div>
+</div><div class="rv-card">
+  <div class="rv-stars">★★★★★</div>
+  <p class="rv-text">Reflexology with Zsu is genuinely transformative. I sleep so much better after every session. Highly recommended.</p>
+  <div class="rv-foot">
+    <span class="rv-name">Priya S.</span>
+    <span class="rv-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google Review</span>
+  </div>
+</div><div class="rv-card">
+  <div class="rv-stars">★★★★★</div>
+  <p class="rv-text">Booked for pregnancy massage — felt completely safe and supported throughout. Such a skilled and caring therapist.</p>
+  <div class="rv-foot">
+    <span class="rv-name">Laura C.</span>
+    <span class="rv-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google Review</span>
+  </div>
+</div><div class="rv-card">
+  <div class="rv-stars">★★★★★</div>
+  <p class="rv-text">Deep tissue work that actually reaches the problem. No fluff, no filler — just proper, effective treatment.</p>
+  <div class="rv-foot">
+    <span class="rv-name">James H.</span>
+    <span class="rv-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google Review</span>
+  </div>
+</div><div class="rv-card">
+  <div class="rv-stars">★★★★★</div>
+  <p class="rv-text">I leave every session feeling like a different person. Zsu has an exceptional ability to find and release tension you didn't even know was there.</p>
+  <div class="rv-foot">
+    <span class="rv-name">Anna T.</span>
+    <span class="rv-src"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Google Review</span>
+  </div>
+</div>
+      </div>
+      <div class="rv-gbp-link">
+        <a href="https://www.google.com/search?q=Zsu+Therapy+Brockley+London" target="_blank" rel="noopener">Read all Google reviews →</a>
+      </div>
+    </div>
 
     <section class="gift">
       <div class="leaf-deco" style="right:-30px;top:30px;width:220px;height:220px;color:var(--c-orange);opacity:calc(var(--leaf-op) * .3)">${leafCluster()}</div>
@@ -2220,7 +2386,14 @@ function screenHours() {
       <div class="shell">
         <div class="loc-grid">
           <div class="map-ph" style="--accent: var(--c-teal); aspect-ratio: 4/3;">
-            <span class="map-ph__label">Google Map · embedded on live site</span>
+            <iframe
+  src="https://maps.google.com/maps?q=Renaissance+Yoga+%26+Wellbeing,+Mantle+Road,+Brockley,+London+SE4+2EW&output=embed"
+  width="100%" height="400"
+  style="border:0;border-radius:var(--r-lg);display:block;"
+  allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+  title="Zsu Therapy location map">
+</iframe>
+            <span class="map-ph__label" style="display:none">placeholder</span>
           </div>
           <div>
             <div class="eyebrow"><span class="dot"></span>Address</div>
