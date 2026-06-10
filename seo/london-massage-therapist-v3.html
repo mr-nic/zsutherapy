@@ -1759,4 +1759,1729 @@
 </div>
 <!-- /page -->
 </body>
+</html> 
+  /* ── Layout ─────────────────────────────────────────────── */ 
+  .page { 
+    max-width: 960px; 
+    margin: 0 auto; 
+    background: var(--paper); 
+    box-shadow: 0 2px 24px rgba(0,0,0,0.08); 
+  } 
+ 
+  .header { 
+    background: var(--ink); 
+    color: #fff; 
+    padding: 3rem 3rem 2rem; 
+    border-bottom: 4px solid var(--amber); 
+  } 
+ 
+  .header-eyebrow { 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    font-size: 0.7rem; 
+    letter-spacing: 0.2em; 
+    text-transform: uppercase; 
+    color: var(--pale); 
+    margin-bottom: 0.6rem; 
+  } 
+ 
+  .header h1 { 
+    font-size: 2.2rem; 
+    font-weight: normal; 
+    line-height: 1.2; 
+    margin-bottom: 0.5rem; 
+  } 
+ 
+  .header-meta { 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    font-size: 0.8rem; 
+    color: var(--pale); 
+    margin-top: 0.8rem; 
+  } 
+ 
+  .content { 
+    padding: 2.5rem 3rem; 
+  } 
+ 
+  /* ── Section headings ───────────────────────────────────── */ 
+  .section { 
+    margin-bottom: 3rem; 
+  } 
+ 
+  .section-label { 
+    display: inline-block; 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    font-size: 0.65rem; 
+    letter-spacing: 0.18em; 
+    text-transform: uppercase; 
+    padding: 0.2rem 0.6rem; 
+    border-radius: 2px; 
+    margin-bottom: 0.5rem; 
+  } 
+ 
+  .label-sw  { background: var(--sw);  color: #fff; } 
+  .label-se  { background: var(--se);  color: #fff; } 
+  .label-el  { background: var(--el);  color: #fff; } 
+  .label-all { background: var(--mid); color: #fff; } 
+  .label-note { background: var(--amber); color: #fff; } 
+ 
+  h2 { 
+    font-size: 1.45rem; 
+    font-weight: normal; 
+    color: var(--ink); 
+    border-bottom: 1px solid var(--rule); 
+    padding-bottom: 0.4rem; 
+    margin-bottom: 1.2rem; 
+  } 
+ 
+  h3 { 
+    font-size: 1rem; 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    font-weight: 600; 
+    color: var(--mid); 
+    margin: 1.4rem 0 0.5rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.06em; 
+    font-size: 0.8rem; 
+  } 
+ 
+  p { margin-bottom: 0.8rem; } 
+ 
+  /* ── Summary cards ──────────────────────────────────────── */ 
+  .summary-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1rem; 
+    margin-bottom: 2rem; 
+  } 
+ 
+  .summary-card { 
+    border-radius: 4px; 
+    padding: 1.2rem 1rem; 
+    border-top: 3px solid; 
+  } 
+ 
+  .card-sw { border-color: var(--sw); background: var(--sw-lt); } 
+  .card-se { border-color: var(--se); background: var(--se-lt); } 
+  .card-el { border-color: var(--el); background: var(--el-lt); } 
+ 
+  .card-area { 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    font-size: 0.65rem; 
+    letter-spacing: 0.15em; 
+    text-transform: uppercase; 
+    color: var(--mid); 
+    margin-bottom: 0.3rem; 
+  } 
+ 
+  .card-range { 
+    font-size: 1.55rem; 
+    font-weight: bold; 
+    line-height: 1.1; 
+    color: var(--ink); 
+  } 
+ 
+  .card-sub { 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    font-size: 0.75rem; 
+    color: var(--mid); 
+    margin-top: 0.3rem; 
+  } 
+ 
+  /* ── Bar chart ──────────────────────────────────────────── */ 
+  .chart-wrap { 
+    background: var(--bg); 
+    border-radius: 4px; 
+    padding: 1.5rem; 
+    margin-bottom: 2rem; 
+  } 
+ 
+  .chart-title { 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    font-size: 0.75rem; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    letter-spacing: 0.1em; 
+    color: var(--mid); 
+    margin-bottom: 1.2rem; 
+  } 
+ 
+  .chart-group { margin-bottom: 0.4rem; } 
+ 
+  .chart-row { 
+    display: flex; 
+    align-items: center; 
+    gap: 0.6rem; 
+    margin-bottom: 0.25rem; 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    font-size: 0.78rem; 
+  } 
+ 
+  .chart-venue { 
+    width: 200px; 
+    flex-shrink: 0; 
+    color: var(--ink); 
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+  } 
+ 
+  .bar-track { 
+    flex: 1; 
+    background: var(--rule); 
+    border-radius: 2px; 
+    height: 18px; 
+    position: relative; 
+  } 
+ 
+  .bar-fill { 
+    height: 100%; 
+    border-radius: 2px; 
+    transition: width 0.3s; 
+  } 
+ 
+  .bar-label { 
+    position: absolute; 
+    right: -38px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    font-size: 0.72rem; 
+    color: var(--mid); 
+    white-space: nowrap; 
+  } 
+ 
+  .bar-sw { background: var(--sw); } 
+  .bar-se { background: var(--se); } 
+  .bar-el { background: var(--el); } 
+  .bar-lux { background: #9b3d2e; } 
+ 
+  .chart-legend { 
+    display: flex; 
+    gap: 1.2rem; 
+    margin-top: 1rem; 
+    flex-wrap: wrap; 
+  } 
+ 
+  .legend-item { 
+    display: flex; 
+    align-items: center; 
+    gap: 0.35rem; 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    font-size: 0.72rem; 
+    color: var(--mid); 
+  } 
+ 
+  .legend-dot { 
+    width: 10px; 
+    height: 10px; 
+    border-radius: 2px; 
+    flex-shrink: 0; 
+  } 
+ 
+  /* ── Venue tables ───────────────────────────────────────── */ 
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    font-size: 0.85rem; 
+    margin-bottom: 1.5rem; 
+  } 
+ 
+  thead th { 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    font-size: 0.68rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.1em; 
+    color: #fff; 
+    padding: 0.5rem 0.7rem; 
+    text-align: left; 
+  } 
+ 
+  thead.th-sw th { background: var(--sw); } 
+  thead.th-se th { background: var(--se); } 
+  thead.th-el th { background: var(--el); } 
+ 
+  tbody tr { border-bottom: 1px solid var(--rule); } 
+  tbody tr:last-child { border-bottom: none; } 
+ 
+  tbody td { 
+    padding: 0.55rem 0.7rem; 
+    vertical-align: top; 
+  } 
+ 
+  tbody tr:nth-child(even) { background: var(--bg); } 
+ 
+  .venue-name { 
+    font-weight: bold; 
+    color: var(--ink); 
+  } 
+ 
+  .venue-loc { 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    font-size: 0.72rem; 
+    color: var(--pale); 
+    display: block; 
+  } 
+ 
+  .price { font-variant-numeric: tabular-nums; white-space: nowrap; } 
+  .price-note { 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    font-size: 0.7rem; 
+    color: var(--pale); 
+    display: block; 
+  } 
+ 
+  .tier { 
+    display: inline-block; 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    font-size: 0.65rem; 
+    padding: 0.1rem 0.4rem; 
+    border-radius: 2px; 
+  } 
+ 
+  .tier-budget   { background: #d4edda; color: #155724; } 
+  .tier-mid      { background: #fff3cd; color: #856404; } 
+  .tier-premium  { background: #f8d7da; color: #721c24; } 
+  .tier-luxury   { background: #d1ecf1; color: #0c5460; } 
+ 
+  /* ── Type table ─────────────────────────────────────────── */ 
+  .type-table thead th { background: var(--ink); } 
+ 
+  /* ── Tips box ───────────────────────────────────────────── */ 
+  .tips-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 1rem; 
+    margin-bottom: 1.5rem; 
+  } 
+ 
+  .tip-card { 
+    border-left: 3px solid var(--amber); 
+    background: var(--amber-lt); 
+    padding: 0.8rem 1rem; 
+    border-radius: 0 4px 4px 0; 
+    font-size: 0.85rem; 
+  } 
+ 
+  .tip-card strong { 
+    display: block; 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    font-size: 0.7rem; 
+    letter-spacing: 0.08em; 
+    text-transform: uppercase; 
+    color: var(--amber); 
+    margin-bottom: 0.25rem; 
+  } 
+ 
+  /* ── Sources ────────────────────────────────────────────── */ 
+  .sources { 
+    border-top: 1px solid var(--rule); 
+    padding-top: 1.5rem; 
+    margin-top: 2rem; 
+  } 
+ 
+  .sources h2 { 
+    font-size: 1rem; 
+    color: var(--mid); 
+    border: none; 
+    margin-bottom: 0.8rem; 
+  } 
+ 
+  .source-list { 
+    list-style: none; 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    font-size: 0.75rem; 
+    columns: 1; 
+    line-height: 1.8; 
+  } 
+ 
+  .source-list li { 
+    margin-bottom: 0.3rem; 
+    break-inside: avoid; 
+  } 
+ 
+  .source-list a { 
+    color: var(--sw); 
+    word-break: break-all; 
+  } 
+ 
+  .source-list a:hover { color: var(--amber); } 
+ 
+  .source-ref { 
+    color: var(--pale); 
+    margin-right: 0.3rem; 
+  } 
+ 
+  /* ── Notes ──────────────────────────────────────────────── */ 
+  .callout { 
+    background: var(--bg); 
+    border-left: 3px solid var(--pale); 
+    padding: 0.75rem 1rem; 
+    border-radius: 0 4px 4px 0; 
+    font-size: 0.82rem; 
+    color: var(--mid); 
+    margin: 1rem 0; 
+  } 
+ 
+  /* ── Footer ─────────────────────────────────────────────── */ 
+  .footer { 
+    background: var(--ink); 
+    color: var(--pale); 
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    font-size: 0.72rem; 
+    padding: 1rem 3rem; 
+    text-align: center; 
+    letter-spacing: 0.04em; 
+  } 
+ 
+  /* ── Print ──────────────────────────────────────────────── */ 
+  @media print { 
+    body { background: white; } 
+    .page { box-shadow: none; max-width: 100%; } 
+    .header { background: #1e2b28 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; } 
+    thead th { -webkit-print-color-adjust: exact; print-color-adjust: exact; } 
+    .bar-fill { -webkit-print-color-adjust: exact; print-color-adjust: exact; } 
+    .tier { -webkit-print-color-adjust: exact; print-color-adjust: exact; } 
+    .summary-card { -webkit-print-color-adjust: exact; print-color-adjust: exact; } 
+    .tip-card { -webkit-print-color-adjust: exact; print-color-adjust: exact; } 
+    a { color: var(--sw) !important; } 
+    .section { page-break-inside: avoid; } 
+  } 
+</style>
+</head>
+<body>
+<div class="page">
+<!-- ── HEADER ─────────────────────────────────────────── -->
+<header class="header">
+<p class="header-eyebrow">Price Intelligence Report</p>
+<h1>London Massage Prices
+										<br/>South, South-East &amp; East London
+										</h1>
+<p class="header-meta">Data compiled June 2025–June 2026  ·  60 &amp; 90 minute sessions  ·  Venue-verified pricing  ·  v2 — extended area coverage</p>
+</header>
+<div class="content">
+<!-- ── OVERVIEW ────────────────────────────────────── -->
+<section class="section">
+<p>This report splits "South London" into two distinct markets — 
+												<strong>SW London</strong> (Clapham, Battersea, Wandsworth) and 
+												<strong>SE London</strong> (Kennington, Walworth, Camberwell, Peckham, Dulwich, Herne Hill, Lewisham, Deptford, Blackheath) — which behave very differently in pricing and venue profile. East London (Shoreditch, Bethnal Green, Hackney) is covered separately.
+											</p>
+<div class="callout">All prices are for in-venue treatments. Mobile/outcall adds approximately £10–25 travel surcharge. Prices verified from booking platforms and venue websites; always confirm at time of booking.</div>
+<!-- Summary cards -->
+<div class="summary-grid" style="margin-top:1.5rem;">
+<div class="summary-card card-sw">
+<div class="card-area">SW London</div>
+<div class="card-range">£55–£135</div>
+<div class="card-sub">60 min · Clapham / Battersea / Wandsworth</div>
+<div style="margin-top:0.4rem; font-family:sans-serif; font-size:0.75rem; color:var(--mid);">90 min: 
+														<strong>£85–£190</strong>
+</div>
+</div>
+<div class="summary-card card-se">
+<div class="card-area">SE London</div>
+<div class="card-range">£40–£90</div>
+<div class="card-sub">60 min · Kennington to Blackheath</div>
+<div style="margin-top:0.4rem; font-family:sans-serif; font-size:0.75rem; color:var(--mid);">90 min: 
+														<strong>£60–£130</strong>
+</div>
+</div>
+<div class="summary-card card-el">
+<div class="card-area">East London</div>
+<div class="card-range">£59–£115</div>
+<div class="card-sub">60 min · Shoreditch / Bethnal Green</div>
+<div style="margin-top:0.4rem; font-family:sans-serif; font-size:0.75rem; color:var(--mid);">90 min: 
+														<strong>£95–£155</strong>
+</div>
+</div>
+</div>
+</section>
+<!-- ── BAR CHART ────────────────────────────────────── -->
+<section class="section">
+<span class="section-label label-all">Price Comparison</span>
+<h2>60-Minute Price by Venue</h2>
+<div class="chart-wrap">
+<p class="chart-title">Mid-range price per venue (60 minutes, solo treatment) — scale: £0 to £220</p>
+<!-- SW London -->
+<h3 style="margin-top:0.2rem;">SW London</h3>
+<div class="chart-row">
+<span class="chart-venue">Kannika Thai Spa, Clapham</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-sw" style="width:25%;"></div>
+<span class="bar-label">£55–£70</span>
+</div>
+</div>
+<div class="chart-row">
+<span class="chart-venue">Oeshi Vitality Centre, Battersea</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-sw" style="width:31%;"></div>
+<span class="bar-label">from £68</span>
+</div>
+</div>
+<div class="chart-row">
+<span class="chart-venue">Four Sides London, Clapham/Battersea</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-sw" style="width:61%;"></div>
+<span class="bar-label">£135</span>
+</div>
+</div>
+<!-- SE London -->
+<h3>SE London</h3>
+<div class="chart-row">
+<span class="chart-venue">Danugur at Dulwich L.C.</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-se" style="width:20%;"></div>
+<span class="bar-label">from £45</span>
+</div>
+</div>
+<div class="chart-row">
+<span class="chart-venue">CORE Soft Tissue, E. Dulwich</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-se" style="width:32%;"></div>
+<span class="bar-label">£71</span>
+</div>
+</div>
+<div class="chart-row">
+<span class="chart-venue">Even Thai Spa, Kennington</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-se" style="width:39%;"></div>
+<span class="bar-label">£85</span>
+</div>
+</div>
+<!-- East London -->
+<h3>East London</h3>
+<div class="chart-row">
+<span class="chart-venue">Bodied, Hackney/Bethnal Green</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-el" style="width:40%;"></div>
+<span class="bar-label">£89</span>
+</div>
+</div>
+<div class="chart-row">
+<span class="chart-venue">Shoreditch Spa, Brick Lane</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-el" style="width:43%;"></div>
+<span class="bar-label">£90–£95</span>
+</div>
+</div>
+<div class="chart-row">
+<span class="chart-venue">MASAJ Shoreditch</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-el" style="width:52%;"></div>
+<span class="bar-label">£95–£115</span>
+</div>
+</div>
+<!-- Luxury -->
+<h3>Luxury / Hotel Spas</h3>
+<div class="chart-row">
+<span class="chart-venue">Shoreditch Spa (package, 90min)</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-lux" style="width:61%;"></div>
+<span class="bar-label">£135</span>
+</div>
+</div>
+<div class="chart-row">
+<span class="chart-venue">Four Seasons, Tower Bridge</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-lux" style="width:95%;"></div>
+<span class="bar-label">£180–£210</span>
+</div>
+</div>
+<div class="chart-legend">
+<div class="legend-item">
+<div class="legend-dot" style="background:var(--sw);"></div>SW London
+													</div>
+<div class="legend-item">
+<div class="legend-dot" style="background:var(--se);"></div>SE London
+													</div>
+<div class="legend-item">
+<div class="legend-dot" style="background:var(--el);"></div>East London
+													</div>
+<div class="legend-item">
+<div class="legend-dot" style="background:#9b3d2e;"></div>Luxury / Hotel
+													</div>
+</div>
+</div>
+</section>
+<!-- ── SW LONDON ────────────────────────────────────── -->
+<section class="section">
+<span class="section-label label-sw">SW London</span>
+<h2>Clapham · Battersea · Wandsworth</h2>
+<p>The highest-variance area: budget Thai spas sit alongside premium boutique studios at more than double the price. This is the market where you find the £135 ceiling in the original data.</p>
+<table>
+<thead class="th-sw">
+<tr>
+<th style="width:26%">Venue</th>
+<th style="width:12%">Type / Tier</th>
+<th style="width:18%">60 min</th>
+<th style="width:18%">90 min</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<span class="venue-name">Kannika Thai Spa</span>
+<span class="venue-loc">Clapham, SW4</span>
+</td>
+<td>
+<span class="tier tier-budget">Budget–Mid</span>
+</td>
+<td class="price"> 
+              £55 (Thai/Swedish)
+															<br/> 
+              £60 (Oil/Aroma)
+																<br/> 
+              £70 (Hot Stone) 
+              
+																	<span class="price-note">+£10 sauna/steam</span>
+</td>
+<td class="price"> 
+              £85 (Thai/Swedish)
+																	<br/> 
+              £90 (Oil/Aroma)
+																		<br/> 
+              £100 (Hot Stone) 
+              
+																			<span class="price-note">+£10 sauna/steam</span>
+</td>
+<td>
+<a href="https://www.kannikathaispa.co.uk/pricing">kannikathaispa.co.uk/pricing</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="venue-name">Oeshi Vitality Centre</span>
+<span class="venue-loc">Battersea, SW11</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid</span>
+</td>
+<td class="price"> 
+              from £67.50
+																			<br/>
+<span class="price-note">(Swedish, Deep Tissue,
+																					<br/>Hot Stone, Aromatherapy)
+																					</span>
+</td>
+<td class="price"> 
+              from £67.50
+																					<br/>
+<span class="price-note">60 &amp; 90 min same entry price;
+																							<br/>call for 90 min booking
+																							</span>
+</td>
+<td>
+<a href="https://www.oeshi.co.uk/massage/">oeshi.co.uk/massage</a>
+<br/>
+<a href="https://www.oeshi.co.uk/pricing/">oeshi.co.uk/pricing</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="venue-name">Bodyness</span>
+<span class="venue-loc">Battersea, SW11</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid</span>
+</td>
+<td class="price">—</td>
+<td class="price">—</td>
+<td>
+<a href="https://www.bodyness.co.uk/pricelist/">bodyness.co.uk/pricelist</a>
+<br/>
+<span class="price-note">Prices not publicly listed</span>
+</td>
+</tr>
+<tr>
+<td>
+<span class="venue-name">Four Sides London</span>
+<span class="venue-loc">Clapham/Battersea, SW11</span>
+</td>
+<td>
+<span class="tier tier-premium">Premium</span>
+</td>
+<td class="price">£135</td>
+<td class="price">—
+																									<br/>
+<span class="price-note">90 min not listed</span>
+</td>
+<td>
+<a href="https://foursideslondon.com/massage">foursideslondon.com/massage</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="venue-name">Blys (mobile)</span>
+<span class="venue-loc">Clapham &amp; wider SW London</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid (mobile)</span>
+</td>
+<td class="price">from £68</td>
+<td class="price">—</td>
+<td>
+<a href="https://getblys.com/uk/locations/massage-clapham-london/">getblys.com (Clapham)</a>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="callout">
+<strong>Fresha aggregate, Battersea:</strong> Swedish massage average £55, range £30–£120. Source: 
+																							<a href="https://www.fresha.com/lp/en/tt/swedish-massages/in/gb-london/battersea">fresha.com/battersea</a>
+</div>
+</section>
+<!-- ── SE LONDON ────────────────────────────────────── -->
+<section class="section">
+<span class="section-label label-se">SE London</span>
+<h2>Kennington · Walworth · Camberwell · Peckham · Dulwich · Herne Hill · Lewisham · Deptford · Blackheath</h2>
+<p>The SE London corridor is a consistently cheaper and more independent market. Very few venues breach £100 for 60 minutes. Destination spas are rare; most offer clinical or wellness-focused independent therapy. Coverage below spans the full arc: Kennington → Camberwell → Peckham → Dulwich → Herne Hill → Lewisham → Deptford → Greenwich → Blackheath → Brixton/Streatham.</p>
+<h3>Kennington · Walworth · Camberwell · Elephant &amp; Castle</h3>
+<table>
+<thead class="th-se">
+<tr>
+<th style="width:26%">Venue</th>
+<th style="width:12%">Type / Tier</th>
+<th style="width:18%">60 min</th>
+<th style="width:18%">90 min</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<span class="venue-name">Even Thai Spa</span>
+<span class="venue-loc">329 Kennington Rd, SE11</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid–Premium</span>
+</td>
+<td class="price"> 
+              £85 (solo Thai/Deep Tissue)
+																										<br/> 
+              £155 (couples, 60 min each) 
+            
+																										</td>
+<td class="price"> 
+              £125 (solo)
+																											<br/> 
+              £225 (couples) 
+            
+																											</td>
+<td>
+<a href="https://eventhaispa.com/">eventhaispa.com</a>
+<br/>
+<a href="https://www.fresha.com/a/even-thai-spa-london-329-kennington-road-o3tbvil8">fresha.com/even-thai-spa</a>
+<br/> 
+              Organic, cruelty-free products. Est. Sept 2024. 
+            
+																													</td>
+</tr>
+<tr>
+<td>
+<span class="venue-name">Muscle Revive Therapy</span>
+<span class="venue-loc">Kennington, SE11 (home studio)</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid (independent)</span>
+</td>
+<td class="price">—
+																														<br/>
+<span class="price-note">Enquire directly</span>
+</td>
+<td class="price">—</td>
+<td>
+<a href="https://www.musclerevivetherapy.co.uk">musclerevivetherapy.co.uk</a>
+<br/> 
+              Mobile also: Walworth, E&amp;C, Bermondsey, Borough 
+            
+																															</td>
+</tr>
+</tbody>
+</table>
+<h3>Brockley · Peckham · East Dulwich · Herne Hill</h3>
+<table>
+<thead class="th-se">
+<tr>
+<th style="width:26%">Venue</th>
+<th style="width:12%">Type / Tier</th>
+<th style="width:18%">60 min</th>
+<th style="width:18%">90 min</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<span class="venue-name">Zsu Therapy</span>
+<span class="venue-loc">Renaissance Yoga &amp; Wellbeing, Mantle Rd, Brockley SE4</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid (independent)</span>
+</td>
+<td class="price"> 
+              £70 (all types — flat rate)
+																																<br/>
+<span class="price-note">Deep tissue, aromatherapy, pregnancy, reflexology, hot stone, cupping, Hawaiian, Thai yoga — all same price</span>
+</td>
+<td class="price"> 
+              £100 (all types)
+																																	<br/> 
+              £85 for 75 min Thai Yoga
+																																		<br/> 
+              £130 for 2 hrs 
+            
+																																		</td>
+<td>
+<a href="https://www.zsutherapy.com/treatments">zsutherapy.com/treatments</a>
+<br/>
+<a href="https://www.fresha.com/lvp/zsu-therapy-in-brockley-mantle-road-9QrJLn">fresha.com/zsu-therapy</a>
+<br/> 
+              Est. 2010. 163 Google reviews, 5.0★. Widest modality range at this price point in SE London. 
+            
+																																				</td>
+</tr>
+<tr>
+<td>
+<span class="venue-name">Danugur at Dulwich Leisure Centre</span>
+<span class="venue-loc">Crystal Palace Rd, SE22</span>
+</td>
+<td>
+<span class="tier tier-budget">Budget</span>
+</td>
+<td class="price">from £45
+																																					<br/>
+<span class="price-note">Fresha-listed; confirm at booking</span>
+</td>
+<td class="price">—</td>
+<td>
+<a href="https://www.fresha.com/lp/en/bt/massage/in/gb-london/peckham">fresha.com/peckham</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="venue-name">CORE Soft Tissue Therapy &amp; Massage</span>
+<span class="venue-loc">9 Upland Rd, East Dulwich, SE22</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid (clinical)</span>
+</td>
+<td class="price"> 
+              £71 Sports (20% disc. applied)
+																																						<br/>
+<span class="price-note">~£89 full price</span>
+</td>
+<td class="price"> 
+              £99 Sports (20% disc. applied)
+																																							<br/>
+<span class="price-note">~£124 full price</span>
+</td>
+<td>
+<a href="https://coredulwich.co.uk/treatment/sports-massage/">coredulwich.co.uk/sports-massage</a>
+<br/> 
+              Serves Peckham, Herne Hill, Camberwell, Forest Hill 
+            
+																																								</td>
+</tr>
+<tr>
+<td>
+<span class="venue-name">BeautyPac / Thai Therapy by Nancy</span>
+<span class="venue-loc">Brixton/Stockwell, SW9</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid</span>
+</td>
+<td class="price"> 
+              £75 (Swedish / Deep Tissue / Thai Oil / Aromatherapy — all same price) 
+            </td>
+<td class="price"> 
+              £105 (Thai Oil 90 min)
+																																									<br/>
+<span class="price-note">Other types: enquire</span>
+</td>
+<td>
+<a href="https://www.beautypac.co.uk/prices/massage">beautypac.co.uk/prices/massage</a>
+<br/> 
+              6 × 1 hr course = £390. Weekday off-peak discounts available. 
+            
+																																										</td>
+</tr>
+</tbody>
+</table>
+<h3>Deptford · Lewisham · New Cross</h3>
+<table>
+<thead class="th-se">
+<tr>
+<th style="width:26%">Venue</th>
+<th style="width:12%">Type / Tier</th>
+<th style="width:18%">60 min</th>
+<th style="width:18%">90 min</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<span class="venue-name">Rush&amp;Ry Deptford</span>
+<span class="venue-loc">5 Deptford Market Yard, SE8</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid</span>
+</td>
+<td class="price">
+<span class="price-note">Fresha range: £35–£150
+																																												<br/>Per-treatment prices not publicly listed
+																																												</span>
+</td>
+<td class="price">—</td>
+<td>
+<a href="https://www.fresha.com/a/rush-ry-deptford-london-5-deptford-market-yard-uys9cpjv">fresha.com/rush-ry-deptford</a>
+<br/>
+<a href="https://www.rushandrylondon.com/deptford-salon">rushandrylondon.com</a>
+<br/> 
+              Also at North Greenwich (West Parkside, SE10) 
+            
+																																													</td>
+</tr>
+</tbody>
+</table>
+<h3>Greenwich · Charlton · Maze Hill</h3>
+<table>
+<thead class="th-se">
+<tr>
+<th style="width:26%">Venue</th>
+<th style="width:12%">Type / Tier</th>
+<th style="width:18%">60 min</th>
+<th style="width:18%">90 min</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<span class="venue-name">Siam Body &amp; Soul Greenwich</span>
+<span class="venue-loc">123A Charlton Rd, SE7</span>
+</td>
+<td>
+<span class="tier tier-budget">Budget–Mid</span>
+</td>
+<td class="price"> 
+              £59 (weekday off-peak 10am–2:30pm)
+																																														<br/> 
+              £70 (standard) 
+            
+																																														</td>
+<td class="price"> 
+              Available — buy 5 get 1 free package
+																																															<br/>
+<span class="price-note">Enquire for single 90 min price</span>
+</td>
+<td>
+<a href="https://www.siambodyandsoul.co.uk/booking">siambodyandsoul.co.uk/booking</a>
+<br/>
+<a href="https://www.siambodyandsoulgreenwich.co.uk/">siambodyandsoulgreenwich.co.uk</a>
+<br/> 
+              Also at King's Cross. Opened March 2024. 
+            
+																																																	</td>
+</tr>
+<tr>
+<td>
+<span class="venue-name">Pure Synergie</span>
+<span class="venue-loc">79 Trafalgar Rd, Maze Hill, SE10</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid</span>
+</td>
+<td class="price"> 
+              —
+																																																		<br/>
+<span class="price-note">Prices described as "wallet-friendly";
+																																																				<br/>not listed publicly — book via Fresha/Treatwell
+																																																				</span>
+</td>
+<td class="price">—</td>
+<td>
+<a href="https://www.puresynergie.co.uk/body/massages/">puresynergie.co.uk/massages</a>
+<br/>
+<a href="https://www.fresha.com/a/pure-synergie-maze-hill-london-79-trafalgar-road-wtxz35ve">fresha.com/pure-synergie</a>
+<br/> 
+              Award-winning. 2,857+ Fresha reviews. Eco/vegan salon. Swedish, deep tissue, aromatherapy, pregnancy. 
+            
+																																																					</td>
+</tr>
+<tr>
+<td>
+<span class="venue-name">Serenity Body &amp; Soul</span>
+<span class="venue-loc">334a Creek Rd, SE10</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid (independent)</span>
+</td>
+<td class="price">—
+																																																						<br/>
+<span class="price-note">Book via Fresha</span>
+</td>
+<td class="price">—</td>
+<td>Lymphatic drainage, deep tissue, reflexology, sports massage.
+																																																							<br/>
+<span style="font-size:0.75rem;">Fresha listing: Creek Rd SE10</span>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Blackheath · SE3</h3>
+<table>
+<thead class="th-se">
+<tr>
+<th style="width:26%">Venue</th>
+<th style="width:12%">Type / Tier</th>
+<th style="width:18%">60 min</th>
+<th style="width:18%">90 min</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<span class="venue-name">Healthwise Natural Therapy Centre</span>
+<span class="venue-loc">5 Delacourt Rd, Blackheath, SE3</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid (clinical)</span>
+</td>
+<td class="price">—
+																																																								<br/>
+<span class="price-note">Sports/deep tissue/pregnancy. Book via 10to8. Call 020 8293 1116 for pricing.</span>
+</td>
+<td class="price">—</td>
+<td>
+<a href="https://healthwisetherapy.com/">healthwisetherapy.com</a>
+<br/> 
+              Est. 2003. Covers Blackheath, Greenwich, Woolwich, Charlton, Lee, Westcombe Park. 
+            
+																																																									</td>
+</tr>
+<tr>
+<td>
+<span class="venue-name">Hopkins Holistic / The Plane Tree</span>
+<span class="venue-loc">31 Roman Rd, Bethnal Green E2 (chair massage at Neal's Yard Remedies Blackheath SE3)</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid (independent)</span>
+</td>
+<td class="price"> 
+              £70 (new clients)
+																																																										<br/> 
+              £65 (returning clients)
+																																																											<br/>
+<span class="price-note">All types same price: holistic, deep tissue, sports, pregnancy</span>
+</td>
+<td class="price"> 
+              £100 (new clients)
+																																																												<br/> 
+              £90 (returning clients) 
+            
+																																																												</td>
+<td>
+<a href="https://hopkinsholistic.com/breathing-tools/">hopkinsholistic.com</a>
+<br/> 
+              Chair massage at Neal's Yard Blackheath: 20 min = £22, 30 min = £30.
+																																																														<br/>
+<a href="https://theplanetree.co.uk/">theplanetree.co.uk</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="venue-name">Blackheath Yoga — resident therapists</span>
+<span class="venue-loc">Blackheath, SE3</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid (independent)</span>
+</td>
+<td class="price"> 
+              —
+																																																															<br/>
+<span class="price-note">Swedish, Deep Tissue, Sports — 30/60/90 min available. Book via Fresha.</span>
+</td>
+<td class="price">Available (book via Fresha)</td>
+<td>
+<a href="https://www.blackheathyoga.co.uk/therapies">blackheathyoga.co.uk/therapies</a>
+<br/> 
+              Multiple independent practitioners. Agata (massage), Orley (60/75/90 min), Gillian (reflexology/Swedish). 
+            
+																																																																</td>
+</tr>
+</tbody>
+</table>
+<h3>Brixton · Streatham · Stockwell · Tulse Hill</h3>
+<table>
+<thead class="th-se">
+<tr>
+<th style="width:26%">Venue</th>
+<th style="width:12%">Type / Tier</th>
+<th style="width:18%">60 min</th>
+<th style="width:18%">90 min</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<span class="venue-name">Brixton Therapy Centre</span>
+<span class="venue-loc">Brixton, SW9/SW2</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid (clinical)</span>
+</td>
+<td class="price"> 
+              —
+																																																																	<br/>
+<span class="price-note">Prices via booking system. Package: buy 3 get 4th free (60 min).</span>
+</td>
+<td class="price">—</td>
+<td>
+<a href="https://www.brixtontherapycentre.com/pricing">brixtontherapycentre.com/pricing</a>
+<br/> 
+              Sports, Swedish, deep tissue, shockwave therapy. Covers SW9, SW2, SW4, SE24, SE15, SE5, SE22, SE11. 
+            
+																																																																		</td>
+</tr>
+<tr>
+<td>
+<span class="venue-name">Brixton Massage (Libby)</span>
+<span class="venue-loc">The Brixton Practice, Tunstall Rd, SW9</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid (independent)</span>
+</td>
+<td class="price">—
+																																																																			<br/>
+<span class="price-note">60 min sports/remedial. Book via Setmore.</span>
+</td>
+<td class="price">—</td>
+<td>
+<a href="https://brixtonmassage.setmore.com/">brixtonmassage.setmore.com</a>
+<br/> 
+              Clinical/remedial specialist. Deep tissue, assisted stretching, IASTM, NMT. 
+            
+																																																																				</td>
+</tr>
+</tbody>
+</table>
+<h3>Fresha / Yell Area Aggregates — SE London</h3>
+<table>
+<thead class="th-se">
+<tr>
+<th>Area</th>
+<th>Massage Type</th>
+<th>Platform Price Range (60 min)</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Deptford</td>
+<td>Full body massage</td>
+<td class="price">£35–£150</td>
+<td>
+<a href="https://www.fresha.com/lp/en/tt/full-body-massages/in/gb-london/deptford">fresha.com/deptford</a>
+</td>
+</tr>
+<tr>
+<td>Lewisham Central</td>
+<td>Thai massage</td>
+<td class="price">£40–£140</td>
+<td>
+<a href="https://www.fresha.com/lp/en/tt/thai-massages/in/gb-london/lewisham-central">fresha.com/lewisham-thai</a>
+</td>
+</tr>
+<tr>
+<td>Herne Hill</td>
+<td>Body massage</td>
+<td class="price">£40–£100
+																																																																					<br/>
+<span class="price-note">Specialist up to £150+</span>
+</td>
+<td>
+<a href="https://www.yell.com/s/body+massage-herne+hill-south+east+london.html">yell.com/herne-hill</a>
+</td>
+</tr>
+<tr>
+<td>Kennington</td>
+<td>Full body</td>
+<td class="price">£40–£200</td>
+<td>
+<a href="https://www.fresha.com/lp/en/tt/full-body-massages/in/gb-london/kennington">fresha.com/kennington</a>
+</td>
+</tr>
+<tr>
+<td>Brixton</td>
+<td>Body massage</td>
+<td class="price">£40–£100
+																																																																						<br/>
+<span class="price-note">Specialist up to £150+</span>
+</td>
+<td>
+<a href="https://www.yell.com/s/body+massage-brixton-south+west+london.html">yell.com/brixton</a>
+</td>
+</tr>
+<tr>
+<td>Greenwich / Charlton</td>
+<td>Sports / spa aggregate (Shoreditch Spa price guide)</td>
+<td class="price">£59–£85</td>
+<td>
+<a href="https://www.treatwell.co.uk/places/treatment-group-massage/offer-type-local/in-greenwich-london-uk/">treatwell.co.uk/greenwich</a>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- ── EAST LONDON ───────────────────────────────────── -->
+<section class="section">
+<span class="section-label label-el">East London</span>
+<h2>Shoreditch · Bethnal Green · Hackney</h2>
+<p>East London has a more developed boutique spa scene than SE London, driven by the tech and creative economy. MASAJ is the flagship independent brand; The Shoreditch Spa offers a traditional spa format on Brick Lane. Note: Shoreditch Spa uses 
+																																																																				<em>55-minute and 85-minute</em> sessions rather than 60/90.
+																																																																			</p>
+<table>
+<thead class="th-el">
+<tr>
+<th style="width:26%">Venue</th>
+<th style="width:12%">Type / Tier</th>
+<th style="width:20%">60 min (or nearest)</th>
+<th style="width:20%">90 min (or nearest)</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<span class="venue-name">MASAJ Shoreditch</span>
+<span class="venue-loc">10 Charlotte Rd, EC2A</span>
+</td>
+<td>
+<span class="tier tier-premium">Premium</span>
+</td>
+<td class="price"> 
+              £95 Relaxing (No.1)
+																																																																							<br/> 
+              £95 Deep Tissue (No.2)
+																																																																								<br/> 
+              £105 Sports (No.4) 
+            
+																																																																								</td>
+<td class="price"> 
+              £155 Relaxing / Deep Tissue
+																																																																									<br/> 
+              £135 Sports 
+              
+																																																																										<span class="price-note">75 min also available: £135</span>
+</td>
+<td>
+<a href="https://www.masaj.me/menu">masaj.me/menu</a>
+<br/>
+<a href="https://www.masaj.me/no1-relaxing-massage-london">masaj.me/relaxing</a>
+<br/>
+<a href="https://www.masaj.me/no2-deep-tissue-massage-london">masaj.me/deep-tissue</a>
+<br/> 
+              Walk-ins &amp; advance bookings 
+            
+																																																																												</td>
+</tr>
+<tr>
+<td>
+<span class="venue-name">The Shoreditch Spa</span>
+<span class="venue-loc">167 Brick Lane, E2</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid</span>
+</td>
+<td class="price"> 
+              £90 Swedish (55 min)
+																																																																													<br/> 
+              £95 Deep Tissue (55 min)
+																																																																														<br/> 
+              £100 Hot Stone (55 min) 
+              
+																																																																															<span class="price-note">Sessions are 55 min, not 60</span>
+</td>
+<td class="price"> 
+              £120 Swedish (85 min)
+																																																																															<br/> 
+              £120 Deep Tissue (85 min)
+																																																																																<br/> 
+              £130 Hot Stone (85 min) 
+              
+																																																																																	<span class="price-note">Sessions are 85 min, not 90
+																																																																																		<br/>Package (massage + scrub): £135/90min
+																																																																																		</span>
+</td>
+<td>
+<a href="https://theshoreditchspa.com/massages-shoreditch/">theshoreditchspa.com/massages</a>
+<br/>
+<a href="https://theshoreditchspa.com/pamper-packages/">theshoreditchspa.com/packages</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="venue-name">Bodied</span>
+<span class="venue-loc">Hackney / Bethnal Green, E2</span>
+</td>
+<td>
+<span class="tier tier-mid">Mid (clinical)</span>
+</td>
+<td class="price"> 
+              £89 SPORTIF 60
+																																																																																			<br/> 
+              £67 SPORTIF 45 
+            
+																																																																																			</td>
+<td class="price"> 
+              £104 SPORTIF 75
+																																																																																				<br/>
+<span class="price-note">No 90 min listed</span>
+</td>
+<td>
+<a href="https://www.fresha.com/lp/en/tt/sports-massages/in/gb-london/shoreditch">fresha.com/shoreditch-sports</a>
+</td>
+</tr>
+<tr>
+<td>
+<span class="venue-name">Four Seasons Hotel, Tower Bridge</span>
+<span class="venue-loc">SE1 (border E. London)</span>
+</td>
+<td>
+<span class="tier tier-luxury">Luxury / Hotel</span>
+</td>
+<td class="price"> 
+              £180–£210
+																																																																																					<br/>
+<span class="price-note">(Mon–Thu vs Fri–Sun; type-dependent)</span>
+</td>
+<td class="price"> 
+              £255–£300
+																																																																																						<br/>
+<span class="price-note">Free spa access included with 90 min+</span>
+</td>
+<td>
+<a href="https://www.fourseasons.com/towerbridge/spa/massages/">fourseasons.com/towerbridge/spa</a>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- ── 90-MIN COMPARISON ─────────────────────────────── -->
+<section class="section">
+<span class="section-label label-all">90-Minute Focus</span>
+<h2>90-Minute Price Comparison Across All Areas</h2>
+<div class="chart-wrap">
+<p class="chart-title">Researched 90-minute prices — scale £0 to £310</p>
+<h3 style="margin-top:0.2rem;">SW London</h3>
+<div class="chart-row">
+<span class="chart-venue">Kannika Thai (Thai/Swedish)</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-sw" style="width:27%;"></div>
+<span class="bar-label">£85</span>
+</div>
+</div>
+<div class="chart-row">
+<span class="chart-venue">Kannika Thai (Hot Stone)</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-sw" style="width:32%;"></div>
+<span class="bar-label">£100</span>
+</div>
+</div>
+<div class="chart-row">
+<span class="chart-venue">Oeshi Vitality Centre</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-sw" style="width:27%;"></div>
+<span class="bar-label">from £68+</span>
+</div>
+</div>
+<h3>SE London</h3>
+<div class="chart-row">
+<span class="chart-venue">CORE Soft Tissue (discounted)</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-se" style="width:32%;"></div>
+<span class="bar-label">£99</span>
+</div>
+</div>
+<div class="chart-row">
+<span class="chart-venue">Even Thai Spa (solo)</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-se" style="width:40%;"></div>
+<span class="bar-label">£125</span>
+</div>
+</div>
+<h3>East London</h3>
+<div class="chart-row">
+<span class="chart-venue">Shoreditch Spa (Swedish, 85 min)</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-el" style="width:39%;"></div>
+<span class="bar-label">£120</span>
+</div>
+</div>
+<div class="chart-row">
+<span class="chart-venue">MASAJ Sports (90 min)</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-el" style="width:44%;"></div>
+<span class="bar-label">£135</span>
+</div>
+</div>
+<div class="chart-row">
+<span class="chart-venue">MASAJ Relaxing/Deep Tissue</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-el" style="width:50%;"></div>
+<span class="bar-label">£155</span>
+</div>
+</div>
+<h3>Hotel / Luxury</h3>
+<div class="chart-row">
+<span class="chart-venue">Four Seasons Tower Bridge</span>
+<div class="bar-track" style="margin-right:50px;">
+<div class="bar-fill bar-lux" style="width:90%;"></div>
+<span class="bar-label">£255–£300</span>
+</div>
+</div>
+<div class="chart-legend" style="margin-top:1rem;">
+<div class="legend-item">
+<div class="legend-dot" style="background:var(--sw);"></div>SW London
+																																																																																					</div>
+<div class="legend-item">
+<div class="legend-dot" style="background:var(--se);"></div>SE London
+																																																																																					</div>
+<div class="legend-item">
+<div class="legend-dot" style="background:var(--el);"></div>East London
+																																																																																					</div>
+<div class="legend-item">
+<div class="legend-dot" style="background:#9b3d2e;"></div>Hotel / Luxury
+																																																																																					</div>
+</div>
+</div>
+</section>
+<!-- ── MASSAGE TYPE COMPARISON ───────────────────────── -->
+<section class="section">
+<span class="section-label label-all">By Treatment Type</span>
+<h2>Price by Massage Type — 60 &amp; 90 Minutes</h2>
+<table class="type-table">
+<thead>
+<tr>
+<th>Type</th>
+<th>SW London 60 min</th>
+<th>SE London 60 min</th>
+<th>East London 60 min</th>
+<th>SW London 90 min</th>
+<th>SE London 90 min</th>
+<th>East London 90 min</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>Swedish</strong>
+</td>
+<td class="price">£55–£90</td>
+<td class="price">£45–£85</td>
+<td class="price">£90–£115</td>
+<td class="price">£85–£130</td>
+<td class="price">—</td>
+<td class="price">£120–£155</td>
+</tr>
+<tr>
+<td>
+<strong>Deep Tissue</strong>
+</td>
+<td class="price">£60–£135</td>
+<td class="price">£71–£85</td>
+<td class="price">£90–£115</td>
+<td class="price">£90–£190</td>
+<td class="price">£99–£125</td>
+<td class="price">£120–£155</td>
+</tr>
+<tr>
+<td>
+<strong>Thai</strong>
+</td>
+<td class="price">£55–£80</td>
+<td class="price">£40–£85</td>
+<td class="price">£90–£115</td>
+<td class="price">£85–£110</td>
+<td class="price">£60–£125</td>
+<td class="price">£120–£155</td>
+</tr>
+<tr>
+<td>
+<strong>Hot Stone</strong>
+</td>
+<td class="price">£68–£100</td>
+<td class="price">£55–£100</td>
+<td class="price">£95–£110</td>
+<td class="price">£100–£140</td>
+<td class="price">—</td>
+<td class="price">£130</td>
+</tr>
+<tr>
+<td>
+<strong>Aromatherapy</strong>
+</td>
+<td class="price">£60–£90</td>
+<td class="price">£45–£90</td>
+<td class="price">£90–£115</td>
+<td class="price">£90–£125</td>
+<td class="price">—</td>
+<td class="price">£125–£155</td>
+</tr>
+<tr>
+<td>
+<strong>Sports</strong>
+</td>
+<td class="price">£68–£135</td>
+<td class="price">£71–£89</td>
+<td class="price">£89–£105</td>
+<td class="price">—</td>
+<td class="price">£99–£104</td>
+<td class="price">£135</td>
+</tr>
+</tbody>
+</table>
+<div class="callout">Ranges reflect independently verified venue data. "—" means no verified data found for that category rather than unavailability.</div>
+</section>
+<!-- ── TIPS ──────────────────────────────────────────── -->
+<section class="section">
+<span class="section-label label-note">Tips</span>
+<h2>How to Save &amp; What to Watch For</h2>
+<div class="tips-grid">
+<div class="tip-card">
+<strong>Book via Treatwell or Fresha</strong> 
+          Regular flash discounts of 20–50% on established venues. Kannika Thai Spa, CORE Dulwich and Rush&amp;Ry all appear on Fresha with live availability. 
+        
+																																																																																				</div>
+<div class="tip-card">
+<strong>Watch the session length</strong> 
+          Shoreditch Spa uses 55/85-minute sessions rather than 60/90. MASAJ offers 75-minute sessions as a midpoint at £135 — useful if 90 min feels too long. 
+        
+																																																																																				</div>
+<div class="tip-card">
+<strong>Loyalty / course bundles</strong> 
+          Shoreditch Spa: buy 5, get 6th free. Kannika: same. CORE Dulwich: 20% off currently applied. MASAJ Shoreditch: bundle discounts visible on Fresha (save up to 10%). 
+        
+																																																																																				</div>
+<div class="tip-card">
+<strong>SW vs SE gap</strong> 
+          For an equivalent deep tissue massage, SE London (£71–£85 at CORE/Even Thai) costs roughly half the Four Sides London price (£135). Travelling from Battersea to Kennington takes 12 minutes. 
+        
+																																																																																				</div>
+<div class="tip-card">
+<strong>Mobile massage</strong> 
+          Urban starts at £74 for 60 min deep tissue, covering all SE and East London postcodes. Blys starts at £68 in Clapham. Add £10–25 for travel. Wecasa advertises from £22.40 in Peckham (budget/platform). 
+        
+																																																																																				</div>
+<div class="tip-card">
+<strong>Hotel luxury tier</strong> 
+          Four Seasons Tower Bridge offers free spa facility access with any 90-minute+ treatment — factoring this in, the effective per-hour cost vs. standalone spa entry narrows considerably for longer sessions. 
+        
+																																																																																				</div>
+</div>
+</section>
+<!-- ── SOURCES ───────────────────────────────────────── -->
+<section class="sources">
+<h2>Sources &amp; References</h2>
+<p style="font-size:0.78rem; color:var(--mid); margin-bottom:0.8rem;">All URLs verified June 2025–June 2026. Prices subject to change — confirm at time of booking.</p>
+<ul class="source-list">
+<li>
+<span class="source-ref">[1]</span> MASAJ menu (all prices): 
+																																																																																					<a href="https://www.masaj.me/menu">https://www.masaj.me/menu</a>
+</li>
+<li>
+<span class="source-ref">[2]</span> MASAJ Shoreditch (relaxing massage): 
+																																																																																					<a href="https://www.masaj.me/no1-relaxing-massage-london">https://www.masaj.me/no1-relaxing-massage-london</a>
+</li>
+<li>
+<span class="source-ref">[3]</span> MASAJ deep tissue pricing: 
+																																																																																					<a href="https://www.masaj.me/no2-deep-tissue-massage-london">https://www.masaj.me/no2-deep-tissue-massage-london</a>
+</li>
+<li>
+<span class="source-ref">[4]</span> MASAJ Shoreditch (Fresha booking): 
+																																																																																					<a href="https://www.fresha.com/a/masaj-shoreditch-london-10-charlotte-road-sx31qjx0">https://www.fresha.com/a/masaj-shoreditch-london-10-charlotte-road-sx31qjx0</a>
+</li>
+<li>
+<span class="source-ref">[5]</span> Shoreditch Spa — massage &amp; body treatments: 
+																																																																																					<a href="https://theshoreditchspa.com/massages-shoreditch/">https://theshoreditchspa.com/massages-shoreditch/</a>
+</li>
+<li>
+<span class="source-ref">[6]</span> Shoreditch Spa — packages: 
+																																																																																					<a href="https://theshoreditchspa.com/pamper-packages/">https://theshoreditchspa.com/pamper-packages/</a>
+</li>
+<li>
+<span class="source-ref">[7]</span> Bodied (Hackney) — Fresha sports massage prices: 
+																																																																																					<a href="https://www.fresha.com/lp/en/tt/sports-massages/in/gb-london/shoreditch">https://www.fresha.com/lp/en/tt/sports-massages/in/gb-london/shoreditch</a>
+</li>
+<li>
+<span class="source-ref">[8]</span> Four Seasons Hotel London at Tower Bridge — spa massages: 
+																																																																																					<a href="https://www.fourseasons.com/towerbridge/spa/massages/">https://www.fourseasons.com/towerbridge/spa/massages/</a>
+</li>
+<li>
+<span class="source-ref">[9]</span> Four Sides London, Clapham — massage prices: 
+																																																																																					<a href="https://foursideslondon.com/massage">https://foursideslondon.com/massage</a>
+</li>
+<li>
+<span class="source-ref">[10]</span> Kannika Thai Spa, Clapham — full pricing: 
+																																																																																					<a href="https://www.kannikathaispa.co.uk/pricing">https://www.kannikathaispa.co.uk/pricing</a>
+</li>
+<li>
+<span class="source-ref">[11]</span> Oeshi Vitality Centre, Battersea — massage page: 
+																																																																																					<a href="https://www.oeshi.co.uk/massage/">https://www.oeshi.co.uk/massage/</a>
+</li>
+<li>
+<span class="source-ref">[12]</span> Oeshi Vitality Centre — pricing page: 
+																																																																																					<a href="https://www.oeshi.co.uk/pricing/">https://www.oeshi.co.uk/pricing/</a>
+</li>
+<li>
+<span class="source-ref">[13]</span> Bodyness, Battersea — price list: 
+																																																																																					<a href="https://www.bodyness.co.uk/pricelist/">https://www.bodyness.co.uk/pricelist/</a>
+</li>
+<li>
+<span class="source-ref">[14]</span> Blys mobile massage, Clapham: 
+																																																																																					<a href="https://getblys.com/uk/locations/massage-clapham-london/">https://getblys.com/uk/locations/massage-clapham-london/</a>
+</li>
+<li>
+<span class="source-ref">[15]</span> Fresha — Swedish massages, Battersea: 
+																																																																																					<a href="https://www.fresha.com/lp/en/tt/swedish-massages/in/gb-london/battersea">https://www.fresha.com/lp/en/tt/swedish-massages/in/gb-london/battersea</a>
+</li>
+<li>
+<span class="source-ref">[16]</span> Even Thai Spa, Kennington — website: 
+																																																																																					<a href="https://eventhaispa.com/">https://eventhaispa.com/</a>
+</li>
+<li>
+<span class="source-ref">[17]</span> Even Thai Spa, Kennington — Fresha: 
+																																																																																					<a href="https://www.fresha.com/a/even-thai-spa-london-329-kennington-road-o3tbvil8">https://www.fresha.com/a/even-thai-spa-london-329-kennington-road-o3tbvil8</a>
+</li>
+<li>
+<span class="source-ref">[18]</span> CORE Soft Tissue Therapy, East Dulwich — sports massage: 
+																																																																																					<a href="https://coredulwich.co.uk/treatment/sports-massage/">https://coredulwich.co.uk/treatment/sports-massage/</a>
+</li>
+<li>
+<span class="source-ref">[19]</span> CORE Soft Tissue Therapy — South East London overview: 
+																																																																																					<a href="https://coredulwich.co.uk/location/south-east-london-massage/">https://coredulwich.co.uk/location/south-east-london-massage/</a>
+</li>
+<li>
+<span class="source-ref">[20]</span> Rush&amp;Ry Deptford — Fresha: 
+																																																																																					<a href="https://www.fresha.com/a/rush-ry-deptford-london-5-deptford-market-yard-uys9cpjv">https://www.fresha.com/a/rush-ry-deptford-london-5-deptford-market-yard-uys9cpjv</a>
+</li>
+<li>
+<span class="source-ref">[21]</span> Rush&amp;Ry London — Deptford salon: 
+																																																																																					<a href="https://www.rushandrylondon.com/deptford-salon">https://www.rushandrylondon.com/deptford-salon</a>
+</li>
+<li>
+<span class="source-ref">[22]</span> Muscle Revive Therapy, Kennington: 
+																																																																																					<a href="https://www.musclerevivetherapy.co.uk">https://www.musclerevivetherapy.co.uk</a>
+</li>
+<li>
+<span class="source-ref">[23]</span> Fresha — full body massage, Deptford: 
+																																																																																					<a href="https://www.fresha.com/lp/en/tt/full-body-massages/in/gb-london/deptford">https://www.fresha.com/lp/en/tt/full-body-massages/in/gb-london/deptford</a>
+</li>
+<li>
+<span class="source-ref">[24]</span> Fresha — Thai massage, Lewisham Central: 
+																																																																																					<a href="https://www.fresha.com/lp/en/tt/thai-massages/in/gb-london/lewisham-central">https://www.fresha.com/lp/en/tt/thai-massages/in/gb-london/lewisham-central</a>
+</li>
+<li>
+<span class="source-ref">[25]</span> Fresha — full body massage, Kennington: 
+																																																																																					<a href="https://www.fresha.com/lp/en/tt/full-body-massages/in/gb-london/kennington">https://www.fresha.com/lp/en/tt/full-body-massages/in/gb-london/kennington</a>
+</li>
+<li>
+<span class="source-ref">[26]</span> Yell — body massage, Herne Hill: 
+																																																																																					<a href="https://www.yell.com/s/body+massage-herne+hill-south+east+london.html">https://www.yell.com/s/body+massage-herne+hill-south+east+london.html</a>
+</li>
+<li>
+<span class="source-ref">[27]</span> Urban massage — London-wide pricing: 
+																																																																																					<a href="https://urban.co/en-gb/massage/london">https://urban.co/en-gb/massage/london</a>
+</li>
+<li>
+<span class="source-ref">[28]</span> Wecasa mobile massage, Peckham: 
+																																																																																					<a href="https://www.wecasa.co.uk/mobile-massage/places/peckham-london">https://www.wecasa.co.uk/mobile-massage/places/peckham-london</a>
+</li>
+<li>
+<span class="source-ref">[29]</span> LocalPrices.net — UK massage cost guide 2025: 
+																																																																																					<a href="https://localprices.net/price-guides/house-cleaning-services-in-2025.html">https://localprices.net/price-guides/house-cleaning-services-in-2025.html</a>
+</li>
+<li>
+<span class="source-ref">[30]</span> Fresha — massages, Peckham: 
+																																																																																					<a href="https://www.fresha.com/lp/en/bt/massage/in/gb-london/peckham">https://www.fresha.com/lp/en/bt/massage/in/gb-london/peckham</a>
+</li>
+<li>
+<span class="source-ref">[31]</span> Siam Body &amp; Soul — booking page with prices: 
+																																																																																					<a href="https://www.siambodyandsoul.co.uk/booking">https://www.siambodyandsoul.co.uk/booking</a>
+</li>
+<li>
+<span class="source-ref">[32]</span> Siam Body &amp; Soul Greenwich: 
+																																																																																					<a href="https://www.siambodyandsoulgreenwich.co.uk/">https://www.siambodyandsoulgreenwich.co.uk/</a>
+</li>
+<li>
+<span class="source-ref">[33]</span> Siam Body &amp; Soul — 90 min package (buy 5 get 1 free): 
+																																																																																					<a href="https://www.siambodyandsoul.co.uk/product-page/buy-5-sessions-get-1-free-of-90-minutes-massage">https://www.siambodyandsoul.co.uk/product-page/...</a>
+</li>
+<li>
+<span class="source-ref">[34]</span> Pure Synergie Greenwich — massage page: 
+																																																																																					<a href="https://www.puresynergie.co.uk/body/massages/">https://www.puresynergie.co.uk/body/massages/</a>
+</li>
+<li>
+<span class="source-ref">[35]</span> Pure Synergie — Fresha: 
+																																																																																					<a href="https://www.fresha.com/a/pure-synergie-maze-hill-london-79-trafalgar-road-wtxz35ve">https://www.fresha.com/a/pure-synergie-maze-hill</a>
+</li>
+<li>
+<span class="source-ref">[36]</span> Healthwise Natural Therapy Centre, Blackheath: 
+																																																																																					<a href="https://healthwisetherapy.com/">https://healthwisetherapy.com/</a>
+</li>
+<li>
+<span class="source-ref">[37]</span> Hopkins Holistic — prices (The Plane Tree / Neal's Yard Blackheath): 
+																																																																																					<a href="https://hopkinsholistic.com/breathing-tools/">https://hopkinsholistic.com/breathing-tools/</a>
+</li>
+<li>
+<span class="source-ref">[38]</span> The Plane Tree, Bethnal Green: 
+																																																																																					<a href="https://theplanetree.co.uk/">https://theplanetree.co.uk/</a>
+</li>
+<li>
+<span class="source-ref">[39]</span> Blackheath Yoga — therapist listings: 
+																																																																																					<a href="https://www.blackheathyoga.co.uk/therapies">https://www.blackheathyoga.co.uk/therapies</a>
+</li>
+<li>
+<span class="source-ref">[40]</span> Brixton Therapy Centre — pricing: 
+																																																																																					<a href="https://www.brixtontherapycentre.com/pricing">https://www.brixtontherapycentre.com/pricing</a>
+</li>
+<li>
+<span class="source-ref">[41]</span> Brixton Massage (Libby) — booking page: 
+																																																																																					<a href="https://brixtonmassage.setmore.com/">https://brixtonmassage.setmore.com/</a>
+</li>
+<li>
+<span class="source-ref">[42]</span> BeautyPac / Thai Therapy by Nancy — price list: 
+																																																																																					<a href="https://www.beautypac.co.uk/prices/massage">https://www.beautypac.co.uk/prices/massage</a>
+</li>
+<li>
+<span class="source-ref">[43]</span> Yell — body massage, Brixton: 
+																																																																																					<a href="https://www.yell.com/s/body+massage-brixton-south+west+london.html">https://www.yell.com/s/body+massage-brixton</a>
+</li>
+<li>
+<span class="source-ref">[44]</span> Treatwell — massages, Greenwich: 
+																																																																																					<a href="https://www.treatwell.co.uk/places/treatment-group-massage/offer-type-local/in-greenwich-london-uk/">https://www.treatwell.co.uk/.../greenwich</a>
+</li>
+<li>
+<span class="source-ref">[46]</span> Zsu Therapy — treatments &amp; prices: 
+																																																																																					<a href="https://www.zsutherapy.com/treatments">https://www.zsutherapy.com/treatments</a>
+</li>
+<li>
+<span class="source-ref">[47]</span> Zsu Therapy — booking page (all prices): 
+																																																																																					<a href="https://www.zsutherapy.com/book-online">https://www.zsutherapy.com/book-online</a>
+</li>
+<li>
+<span class="source-ref">[48]</span> Zsu Therapy — Fresha listing: 
+																																																																																					<a href="https://www.fresha.com/lvp/zsu-therapy-in-brockley-mantle-road-9QrJLn">https://www.fresha.com/lvp/zsu-therapy-brockley</a>
+</li>
+</ul>
+</section>
+</div>
+<!-- /content -->
+<footer class="footer"> 
+    Data compiled June 2025–June 2026  ·  Prices subject to change  ·  Always confirm at time of booking 
+  </footer>
+</div>
+<!-- /page -->
+</body>
 </html>
